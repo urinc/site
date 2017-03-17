@@ -1,0 +1,32 @@
+
+.main-container{
+    width : 95%;
+    max-width: 1200px;
+    padding : 1% 1% 0% 2%;
+     font-family: 'Roboto';
+   }
+
+
+.right-panel {
+  background-color: peachpuff;
+  height : 300px;
+  overflow : hidden;
+  padding : 20px;
+  margin-left : 75%
+  
+ 
+}
+
+.list-wrapper{
+    width : 70%;
+    float: left;
+   /* background-color: white;*/
+
+}
+
+
+
+.clr{
+    clear: both
+}
+

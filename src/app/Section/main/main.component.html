@@ -1,0 +1,31 @@
+<div class="main-container">
+  <div class="showcase-container">
+    <app-showcase [videoList]="videoList">
+    </app-showcase>
+  </div>  <!--  showcase-container-->
+
+
+  <div class="list-panel-container">
+
+    <div class="list-wrapper">
+    <app-list [itemsList]="itemsList" [classOfInitialPage]="classOfInitialPage">
+      </app-list>
+  
+    </div>
+    
+
+    <div class="right-panel">
+      <p>RIGHT panel</p>
+    </div>
+  
+   <div class = "clr"> </div>
+ 
+  </div>  <!--list-panel-container-->
+
+
+</div><!--main-container-->
+
+
+<div class="infinite-scroll" infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="300" (scrolled)="moreItems()">
+</div><!--infinite-scroll-->
+

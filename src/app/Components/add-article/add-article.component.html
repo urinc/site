@@ -1,0 +1,88 @@
+
+<div class = "title"> Add new article
+</div>
+<div class="add">
+<form novalidate (ngSubmit)="onSubmit(addNewArticle)" [formGroup]="addNewArticle" class="ui form">
+  <label> Title</label>
+  <input type="text" placeholder="TITLE" formControlName="title" class="field">
+ <!-- <div *ngIf="addNewArticle.get('title').hasError('required') && addNewArticle.get('title').touched">
+    Name is a required field
+  </div>
+  <div *ngIf="addNewArticle.get('title').hasError('minlength') && addNewArticle.get('title').touched">
+    Name should be minimum 4 characters
+  </div>-->
+
+  <label> Avatar Source</label>
+  <input type="text" placeholder="AVATAR SOURCE" formControlName="avatar" class="field">
+  <!--<div *ngIf="addNewArticle.get('avatar').hasError('required') && addNewArticle.get('avatar').touched">
+    Name is a required field
+  </div>
+  <div *ngIf="addNewArticle.get('avatar').hasError('minlength') && addNewArticle.get('avatar').touched">
+    Name should be minimum 4 characters
+  </div>-->
+
+
+  <label> Autor's name</label>
+  <input type="text" placeholder="Autor's Name" formControlName="author" class="field">
+
+
+  <label> Video URL </label>
+  <input type="text" placeholder="Autor's Name" formControlName="videoURL" class="field">
+  <!--<div *ngIf="addNewArticle.get('author').hasError('required') && addNewArticle.get('author').touched">
+    Name is a required field
+  </div>
+  <div *ngIf="addNewArticle.get('author').hasError('minlength') && addNewArticle.get('author').touched">
+    Name should be minimum 4 characters
+  </div>-->
+
+  <div class="ui form">
+    <div class="inline fields">
+      <label for="articleType">Select Article Type:</label>
+      <div class="field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="articleType" value="news" formControlName="articleType">
+          <label>News</label>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="articleType" value="blog" formControlName="articleType">
+          <label>Blogs</label>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="articleType" value="article" formControlName="articleType">
+          <label>Articels</label>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="articleType" value="video" formControlName="articleType">
+          <label>Video</label>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+<app-tiny-editor
+  [elementId]="'my-editor'"
+  (onEditorContentChange)="keyupHandler($event)"
+  >
+</app-tiny-editor>
+
+
+
+ <!-- <button type="submit" [disabled]="addNewArticle.invalid">Add</button>
+  <button (click)="preview(addNewArticle)">Preview</button>-->
+  <button (click)="post()"> Post </button>
+</form>
+
+
+
+
+
+</div>

@@ -1,0 +1,12 @@
+.add{
+   /* width : 70%;*/
+    border : solid 1px black
+}
+
+.title{
+    text-align: center;
+      width : 70%;
+    padding : 10px 5px 10px 5px;
+    font-size: 2em
+
+}

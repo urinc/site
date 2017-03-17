@@ -1,0 +1,47 @@
+<div class="item" [ngClass]="classOfInitialPage">
+  <div class="item-container">
+    <div class="image-container">
+      <img class="pointer" src= {{item.avatar}} (click)="navigateTo()" alt="Image Loading">
+      <div class="category"> {{item.category}}
+      </div>      <!--category-->
+      <div class="read-time"> Reading time ~ {{approximateReading()}} min
+      </div>      <!--read-time-->
+    </div>    <!-- image-container-->
+    <div class="id">{{item.id}}
+    </div>    <!-- id-->
+    <div class= "literal-part">
+    <div class="pointer title" (click)="navigateTo()">
+      {{item.title}}
+    </div>    <!-- pointer title-->
+    <div class="stamp"> {{item.date | date:'medium' }} &nbsp;&nbsp;
+    </div>    <!--stamp-->
+    <div class="author"> &nbsp; {{item.author}}
+    </div>    <!--author-->
+    <div class="intro"> {{intro}}
+    </div> <!--intro-->
+    </div> <!--literal-part-->
+  </div>  <!--item-container-->
+</div><!--classOfInitialPage-->
+
+
+
+
+
+<!--
+  <div style="clear:both"></div>
+   
+
+   <div class = "expander" *ngIf= "articleArr.length">
+    <i  *ngIf="!marker"
+     class ="angle double down icon" 
+     (click) =" toggleExpander()" 
+
+    >
+    </i>
+
+   <i *ngIf="marker" 
+    class ="angle double up icon"    
+    (click) =" toggleExpander()"  
+   >
+   </i>
+ </div>-->

@@ -1,0 +1,71 @@
+<!--<div class="showcase-container">
+  <div *ngFor="let item of videoList| slice:0:3; let i=index" class="img-container">
+
+
+
+
+    <div *ngIf="i < 3">
+      <img src= {{item.avatar}} alt="Image Loading">
+      <span>{{item.title}} </span>
+    </div>
+
+
+  </div>
+</div>
+-->
+
+
+<!--<div  *ngFor="let item of videoList| slice:0:3; let i=index">
+  <div *ngIf="i ==0" >  
+
+      <img src= {{item.avatar}} alt="Image Loading">
+      <span>{{item.title}} </span>
+   </div>
+</div>  
+
+{{str}}
+-->
+
+<div *ngIf = "videoList.length>4"> 
+<div class= "showcase-container">
+    <div class="level1" (click) = "navigateTo(videoList[0].id)">
+    <img src= {{videoList[0].avatar}} alt="Image Loading">
+    <div class="text_div">{{videoList[0].title}}
+    </div>
+    </div><!-- level1-->
+    <div class="level1">   
+      <div class="level2">
+        <div class="level3" (click) = "navigateTo(videoList[1].id)">  
+         <img src= {{videoList[1].avatar}} alt="Image Loading">
+         <div class="text_div">{{videoList[1].title}}
+         </div>
+        </div> <!-- level3-->    
+        <div class="level3" (click) = "navigateTo(videoList[2].id)">  
+          <img src= {{videoList[2].avatar}} alt="Image Loading">
+          <div class="text_div">{{videoList[2].title}}
+          </div>
+        </div> <!-- level3-->    
+      </div> <!-- level2-->
+      <div class="level2">
+        <div class="level3" (click) = "navigateTo(videoList[3].id)">  
+           <img src= {{videoList[3].avatar}} alt="Image Loading">
+           <div class="text_div">{{videoList[3].title}}
+           </div>
+        </div> <!-- level3-->    
+        <div class="level3" (click) = "navigateTo(videoList[4].id)">  
+          <img src= {{videoList[4].avatar}} alt="Image Loading">
+          <div class="text_div">{{videoList[4].title}}
+           <span> Author ::
+              {{videoList[4].author}}
+          </span>
+          </div>
+        </div> <!-- level3-->    
+      </div> <!-- level2-->
+    </div><!-- level1-->
+</div>  <!--showcase-->
+
+
+
+
+
+  </div>
