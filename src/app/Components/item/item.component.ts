@@ -35,13 +35,12 @@ sanitizeText(body){
     return body.replace(regex, '')
     .replace(/(&laquo;)/, '"')
     .replace(/(&raquo;)/, ''); 
-
 }
 
 
  getIntro(){
    for (let i = 0; i < this.splittedBody.length ; i++){
-     if (this.intro.length < 190) {
+     if (this.intro.length < 195) {
        this.intro = this.intro + this.splittedBody[i] + ' ';
       }
       else    return ;
