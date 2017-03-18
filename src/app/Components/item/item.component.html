@@ -1,5 +1,5 @@
 <div class="item" [ngClass]="classOfInitialPage">
-  <div class="item-container">
+  <div class="item-container" [ngClass]= "{topped : top}">
     <div class="image-container">
       <img class="pointer" src= {{item.avatar}} (click)="navigateTo()" alt="Image Loading">
       <div class="category"> {{item.category}}
@@ -17,8 +17,12 @@
     </div>    <!--stamp-->
     <div class="author"> &nbsp; {{item.author}}
     </div>    <!--author-->
-    <div class="intro"> {{intro}}
+    <div class="intro">{{intro}}
     </div> <!--intro-->
+    <div class="article-body" [ngClass]="{minimized: visibility ,maximized : !visibility} " > 
+         {{articleBody}}
+    </div> <!--article-body-->
+   <p (click) = "toggleVisibility()" > * * * </p>
     </div> <!--literal-part-->
   </div>  <!--item-container-->
 </div><!--classOfInitialPage-->

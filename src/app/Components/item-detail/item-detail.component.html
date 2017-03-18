@@ -1,8 +1,25 @@
-<p>
-  item-detail works! 
-</p>
+
+<div class  = "detail-component-side-panel-conatiner">
+  <div class="category"> {{item.category}}
+      </div>      <!--category-->
+  <div class = "detail-component">
+    <h1> {{item.title}} </h1>
+     <div class="stamp"> {{item.date | date:'medium' }} &nbsp;&nbsp;
+    </div>    <!--stamp-->
+    <div class="author"> &nbsp; {{item.author}}
+    </div>    <!--author-->
+     <div class = "avatar">
+    <img src = {{item.avatar}}>
+    </div> <!--avatar-->
+    <div class  = "body" [innerHTML] = "item.body"></div>  <!--item-body-->
+  </div>   <!--detail-cmponent-->
+  <div class = "side-panel">
+    Side panel
+  </div>  <!--side-panel-->
+ </div> <!--detail-component-side-panel-conatiner-->
+<div class= "clr">
+</div>  <!--clr-->
 
 
-  <div [innerHTML] = "item.body">
 
 

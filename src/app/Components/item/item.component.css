@@ -1,5 +1,9 @@
 
 /*--------Main Section Component------------- */
+  .mainSection .topped {
+   
+  }
+  
   .mainSection .pointer{
    cursor: pointer;
    }
@@ -23,7 +27,6 @@
    .mainSection .id{
      display: none
    }
-   
    .mainSection .title {
      font-size: 1.2em ;
      font-weight: bold;
@@ -39,8 +42,7 @@
  .mainSection .image-container{
    position : relative;
     width : 250px;
-    
-  }
+   }
  .mainSection .image-container .read-time{
    display : block;
    position : absolute;
@@ -72,8 +74,7 @@
      visibility:visible;
 }
  .mainSection .image-container:hover .read-time{
- 
-    visibility:visible;
+     visibility:visible;
  }
  .mainSection .literal-part {
     
@@ -84,6 +85,19 @@
  .mainSection .intro{
    font-family: "Roboto-Regular"
  }
- .mainSection .intro:after  {
-   content: "..."
+  .mainSection .literal-part p{
+    text-align: center;
+    cursor : pointer
+ }
+ .mainSection .minimized{
+   height: 0px;
+   visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s, visibility 0.5s,  height 0.5s;
+ }
+ .mainSection .maximized{
+    height : auto;
+  visibility: visible;
+    opacity: 1;
+    transition: opacity 0.5s, visibility 0.5s, height 0.5s;
  }

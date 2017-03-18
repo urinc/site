@@ -1,0 +1,71 @@
+.detail-component-side-panel-conatiner{
+    width : 95%;
+    max-width: 1200px;
+    padding : 1% 1% 0% 2%;
+     font-family: 'Roboto';
+}
+
+.detail-component{
+  /*  border: solid blue 3px;*/
+    float : left;
+    max-width: 75%;
+     
+}
+
+.detail-component img {
+    max-width : 90%;
+    margin : 5%
+    
+
+}
+
+.author:before {
+      content: "๏̯͡๏ :" }
+.stamp:before {
+      content: "☄ :" }    
+.stamp{
+      margin-left: 5%;
+  float: left
+    }   
+
+
+.side-panel{
+    
+     background-color: peachpuff;
+  height : 300px;
+  overflow : hidden;
+  padding : 20px;
+  margin-left : 75%;
+  margin-top : 150px;
+  width : 25%
+  }
+  
+  .clr{
+      clear:both
+  }
+
+  .category{
+     text-align: right;
+     width : 50px;
+     background-color: dodgerblue;
+     border-radius: 2px;
+     padding : 3px;
+     opacity : 0.6;
+     text-shadow: 1px 1px 1px #333;
+     color : white;
+     
+      
+   }
+
+   blockquote p{
+       color: red;
+       font-style: italic;
+   }
+   .body{
+       margin-left: 5%;
+       margin-right: 5%
+   }
+
+   .body img{
+       margin-bottom: 20px
+   }
