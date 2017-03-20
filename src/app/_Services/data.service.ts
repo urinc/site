@@ -20,7 +20,7 @@ export class DataService {
 
     this.getInitialLastItems(5);
     this.items = angularFire.database.list('/items');
-    this.addVideoToArray(7);
+    this.addVideoToArray(6);
   }
   getQuery(category: string, limiToLast: number): {} {
     return {
@@ -33,18 +33,25 @@ export class DataService {
         orderByChild: 'id',
         limitToLast: quantityInitial,          // initial items quantityInitial
       }
-    }).subscribe(list => this.pushUniqueList(this.reverseList(list), this.NEWS));
+    }).subscribe(list =>(list.forEach(element=>this.unshiftUniqueItem(element, this.NEWS))))
+    //subscribe(list => this.pushUniqueList(this.reverseList(list), this.NEWS));
 
   }
   pushUniqueList(list: any[], array: any[]): void {
     list.forEach(element => this.pushUniqueItem(element, array))
   }
+  unshiftUniqueItem(item, array){
+    for (let i = 0; i < array.length; i++) {
+      if (array[i].id === item.id) { return }
+    }
+             array.unshift(item);
+             }
+
   pushUniqueItem(item, array: any[]): void {
-    let repeat = false;
-    array.forEach(element => {
-      if (+(element.id) == +(item.id)) { repeat = true }
-    })
-    if (!repeat) { array.push(item) }
+    for (let i = 0; i < array.length; i++) {
+      if (array[i].id === item.id) { return }
+    }
+             array.push(item);
   }
   reverseList(list: any[]): any[] {
     let tmp = [];
@@ -58,8 +65,9 @@ export class DataService {
         startAt: (+this.getMinId(this.NEWS) - (quantity)),
         endAt: (+this.getMinId(this.NEWS) - (1)),
       }
-    }).subscribe(
-      list => this.pushUniqueList(this.reverseList(list), this.NEWS))
+    }).subscribe(list => this.pushUniqueList(this.reverseList(list), this.NEWS))
+    //subscribe(list => list.forEach(element => this.pushUniqueItem(element, this.NEWS)))
+      
   }
   getMinId(array: any[]): number {
     let min = Math.min(
@@ -79,14 +87,14 @@ export class DataService {
   getData(): News[] {
     return this.NEWS
   }
-   getDataById(id): any {
-        for (var i = 0; i < this.NEWS.length; i++) {
+  getDataById(id): any {
+    for (var i = 0; i < this.NEWS.length; i++) {
       if (this.NEWS[i].id == id) {
-           return this.NEWS[i];
+        return this.NEWS[i];
       }
     }
 
-    
+
     return -1;
   }
   getDataByIdObservable(id) {
@@ -106,8 +114,10 @@ export class DataService {
 
   }
   addVideoToArray(quantity: number): void {
-    let query = this.getQuery("video", (DataService.videoLimiToLast + quantity));
+    let query = this.getQuery("video", (DataService.videoLimiToLast= DataService.videoLimiToLast + quantity));
     this.angularFire.database.list('/items', query)
       .subscribe(list => this.pushUniqueList(this.reverseList(list), this.video));
+     
   }
+
 }

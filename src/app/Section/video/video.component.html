@@ -1,14 +1,13 @@
-
-      <app-list  
-      [itemsList] = "itemsList" 
-      [classOfInitialPage] = "classOfInitialPage" >
-      </app-list>
-     
-      
-       <div 
-            infinite-scroll
-            [infiniteScrollDistance]="2"
-            [infiniteScrollThrottle]="300"
-            (scrolled)="moreItems()">
-        </div>
-
+<div class="video-container">
+    <div class="items-list-continer">
+    <app-list [itemsList]="itemsList" [classOfInitialPage]="classOfInitialPage">
+    </app-list>
+    </div> <!--items-list-conatiner-->
+    <div class="right-panel">
+        bla bla bla
+    </div><!--right-panlel-->
+    
+</div>
+<!--video-container-->
+<div infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="300" (scrolled)="moreItems()">
+</div>

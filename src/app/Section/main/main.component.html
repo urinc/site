@@ -25,7 +25,7 @@
 
 </div><!--main-container-->
 
-
+<div *ngIf = "itemsList"> </div>
 <div class="infinite-scroll" infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="300" (scrolled)="moreItems()">
 </div><!--infinite-scroll-->
 

@@ -1,0 +1,16 @@
+.video-container{
+   
+    width: 90%;
+    margin: auto;
+}
+
+.items-list-continer{
+      width: 70%;
+    float:left;
+}
+.right-panel{
+    background-color: palegoldenrod;
+      width: 300px;
+    margin-left: 70%;
+    height: 600px
+}

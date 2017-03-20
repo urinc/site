@@ -28,6 +28,7 @@ classOfInitialPage = {videoSection :true};
 
  moreItems() {
     this.dataService.addVideoToArray(5);
+    
   }
 
 }

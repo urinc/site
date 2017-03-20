@@ -30,8 +30,7 @@ marker = "none"
      this.cleanedBody = this.sanitizeText(this.initialBody);
      this.splittedBody = this.cleanedBody.split(' ');
      this.getIntro();
-     this.getArticleBody();
-    
+     this.getArticleBody();     
   }
 
 
