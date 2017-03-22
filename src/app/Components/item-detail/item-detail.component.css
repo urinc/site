@@ -12,6 +12,14 @@
      
 }
 
+.community-name{
+    color:red
+}
+.disqus{
+     max-width: 75%;
+      margin : 4%;
+}
+
 .detail-component img {
     max-width : 90%;
     margin : 5%

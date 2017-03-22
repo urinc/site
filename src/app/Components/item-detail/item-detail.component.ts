@@ -15,18 +15,19 @@ import { DataService } from '../../_Services/data.service';
 
 export class ItemDetailComponent implements OnInit {
   shortname: string = "break-news";
- 
+  pageUrl: string; 
 
   @Input() item: News;
 
-  constructor() { 
-
-  }
+ constructor(private route:ActivatedRoute) {
+  console.log(route);
+}
    ngOnInit() {
-    console.log("Onitnit -item")
+     this.pageUrl = "http://195.138.78.131/newsApp/#/item/" +this.item.id;
+    console.log("Onitnit -item " + this.pageUrl)
      }
  ngOnDestroy(){
-   console.log("Ondestroy -item")
+  // console.log("Ondestroy -item"  + this.item.id)
  }
 
 
