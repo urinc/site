@@ -7,6 +7,7 @@ import { CarouselModule } from 'ng2-bootstrap/carousel';
 import { AngularFireModule } from 'angularfire2'
 import { firebaseConfig } from '../environments/firebase.config'
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
+import { DisqusModule } from "ng2-awesome-disqus";
 
 import { AppComponent } from './app.component';
 import { DataService } from './_Services/data.service';
@@ -59,7 +60,9 @@ const appRoutes: Routes =[
     HttpModule,
     AngularFireModule.initializeApp(firebaseConfig),
     InfiniteScrollModule,
-    CarouselModule.forRoot()
+    CarouselModule.forRoot(),
+    DisqusModule
+
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

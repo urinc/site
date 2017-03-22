@@ -14,16 +14,20 @@ import { DataService } from '../../_Services/data.service';
 
 
 export class ItemDetailComponent implements OnInit {
-
+  shortname: string = "break-news";
+ 
 
   @Input() item: News;
 
-  constructor() { }
-  ngOnInit() {
-   
+  constructor() { 
+
   }
-
-
+   ngOnInit() {
+    console.log("Onitnit -item")
+     }
+ ngOnDestroy(){
+   console.log("Ondestroy -item")
+ }
 
 
 
