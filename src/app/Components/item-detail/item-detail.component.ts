@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -13,23 +13,27 @@ import { DataService } from '../../_Services/data.service';
 })
 
 
-export class ItemDetailComponent implements OnInit {
+export class ItemDetailComponent implements OnInit,AfterViewInit {
   shortname: string = "break-news";
   pageUrl: string; 
 
   @Input() item: News;
 
  constructor(private route:ActivatedRoute) {
-  console.log(route);
+  
+}
+
+
+ngAfterViewInit(){
+ window.scrollTo(0, 0 );
 }
    ngOnInit() {
+    
      this.pageUrl = "http://195.138.78.131/newsApp/#/item/" +this.item.id;
-    console.log("Onitnit -item " + this.pageUrl)
+  
      }
  ngOnDestroy(){
   // console.log("Ondestroy -item"  + this.item.id)
  }
-
-
 
 }

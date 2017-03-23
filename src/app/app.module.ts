@@ -23,6 +23,7 @@ import { FullItemComponent } from './Section/full-item/full-item.component';
 import { VideoComponent } from './Section/video/video.component';
 import { ShowcaseComponent } from './components/showcase/showcase.component';
 import { BlogsComponent } from './section/blogs/blogs.component';
+import { CommentsComponent } from './components/comments/comments.component';
 
 
 const appRoutes: Routes =[
@@ -50,7 +51,8 @@ const appRoutes: Routes =[
     FullItemComponent,
     VideoComponent,
     ShowcaseComponent,
-    BlogsComponent
+    BlogsComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,

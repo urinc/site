@@ -30,7 +30,7 @@ export class MainComponent implements OnInit {
   }
  
   moreItems() {
-    this.dataService.getLastItems(5);
+    this.dataService.getLastItems(25);
     
   }
   
