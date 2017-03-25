@@ -20,7 +20,7 @@ declare var tinymce: any;
 @Component({
   selector: 'app-tiny-editor',
   template: `<textarea id="{{elementId}}"></textarea>`
-/*  <button (click) = "march()">March))) </button>*/
+
 })
 export class TinyEditorComponent implements AfterViewInit, OnDestroy {
   @Input() elementId: String;
@@ -43,10 +43,7 @@ export class TinyEditorComponent implements AfterViewInit, OnDestroy {
     });
   }
 
-  march() {
-    console.log()
-  }
-
+ 
   ngOnDestroy() {
     tinymce.remove(this.editor);
   }

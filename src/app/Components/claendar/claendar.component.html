@@ -1,0 +1,34 @@
+<div class = "calendar-container">
+  <date-picker
+   (onDateChanged)="onDateFromChanged($event)"
+   [direction] = "from">
+  
+ </date-picker>
+  
+  <date-picker  
+   (onDateChanged)="onDateToChanged($event)"
+  [direction] = "to">
+  
+ </date-picker>
+<div class= "clear">
+</div>  
+
+<button (click)="getItems()" > Search</button>
+
+ 
+<div *ngIf = "!itemsList && marker" > 
+   
+  Loading ...
+</div>  
+
+<!--
+<div *ngIf = "itemList"
+ class= "app-list">-->
+  <app-list [itemsList]="itemsList" [classOfInitialPage]="classOfInitialPage">
+    Loading...
+    </app-list>
+
+</div>    <!--calendar-container-->
+
+  
+  

@@ -72,6 +72,7 @@ sanitizeText(body){
   
   toggleVisibility(){
     this.visibility=!this.visibility;
+  
     
  
   }

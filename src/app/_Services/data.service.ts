@@ -13,7 +13,7 @@ export class DataService {
   static blogsLimiToLast = 0;
   NEWS: News[] = [];
   video: News[] = [];
-  articles: News[] = [];
+  calendar: News[] = [];
   blogs: News[] = [];
 
   constructor(private angularFire: AngularFire) {
@@ -119,5 +119,22 @@ export class DataService {
       .subscribe(list => this.pushUniqueList(this.reverseList(list), this.video));
      
   }
+  addToCalendar(start : number, end: number){
+    
+    if(this.calendar) this.calendar=[];
+   this.angularFire.database.list('/items', {
+      query: {
+        orderByChild:'date',
+        startAt: start,//1489171852392,
+        endAt: end,
+      }
+    })
+    .subscribe(list =>this.pushUniqueList(this.reverseList(list), this.calendar));
 
+  //  .subscribe(list => list.forEach(element =>console.log(element)))  
+
+}
+ getCalendar(){
+   return this.calendar;
+ }
 }

@@ -16,7 +16,7 @@ import { DataService } from '../../_Services/data.service';
 export class ItemDetailComponent implements OnInit,AfterViewInit {
   shortname: string = "break-news";
   pageUrl: string; 
-
+  ident : string;
   @Input() item: News;
 
  constructor(private route:ActivatedRoute) {
@@ -25,11 +25,12 @@ export class ItemDetailComponent implements OnInit,AfterViewInit {
 
 
 ngAfterViewInit(){
+  
  window.scrollTo(0, 0 );
 }
    ngOnInit() {
     
-     this.pageUrl = "http://195.138.78.131/newsApp/#/item/" +this.item.id;
+     this.pageUrl = "http://news/" +this.item.id;
   
      }
  ngOnDestroy(){

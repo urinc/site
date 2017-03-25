@@ -1,0 +1,11 @@
+.date-picker{
+    display: inline-block;
+    max-width: 350px;
+    /*float: left;*/
+    margin-left: 10%;
+    
+    
+}
+button{
+    margin-top:-20px;
+    }

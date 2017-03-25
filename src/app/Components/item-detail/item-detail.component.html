@@ -12,18 +12,25 @@
     <img src = {{item.avatar}}>
     </div> <!--avatar-->
     <div class  = "body" [innerHTML] = "item.body"></div>  <!--item-body-->
+
+ <div class = "disqus">
+ <disqus-comp  
+  [identifier]="item.id"   >
+
+  </disqus-comp>
+  </div>  <!--disqus-->
+
   </div>   <!--detail-cmponent-->
     <div class = "side-panel">
     Side panel
   </div>  <!--side-panel-->
   
-  <div *ngIf = "item.id" class="disqus">
-   <disqus [shortname]="shortname" [url]="pageUrl" ></disqus>
-  <div>
-
-
+<!--  <div *ngIf = "item.id" >
+   <disqus [shortname]="shortname"   [identifier]="item.id"  ></disqus>
+  </div>-->
+<!--[url]="pageUrl"-->
+ 
  </div> <!--detail-component-side-panel-conatiner-->
 
 <div class= "clr">
 </div>  <!--clr-->
-

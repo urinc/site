@@ -7,7 +7,8 @@ import { CarouselModule } from 'ng2-bootstrap/carousel';
 import { AngularFireModule } from 'angularfire2'
 import { firebaseConfig } from '../environments/firebase.config'
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
-import { DisqusModule } from "ng2-awesome-disqus";
+import { DatepickerModule } from 'ng2-bootstrap/datepicker';
+//import { DisqusModule } from "ng2-awesome-disqus";
 
 import { AppComponent } from './app.component';
 import { DataService } from './_Services/data.service';
@@ -24,6 +25,8 @@ import { VideoComponent } from './Section/video/video.component';
 import { ShowcaseComponent } from './components/showcase/showcase.component';
 import { BlogsComponent } from './section/blogs/blogs.component';
 import { CommentsComponent } from './components/comments/comments.component';
+import { ClaendarComponent } from './Components/claendar/claendar.component';
+import { DatePickerComponent } from './Components/date-picker/date-picker.component';
 
 
 const appRoutes: Routes =[
@@ -32,6 +35,7 @@ const appRoutes: Routes =[
     { path: 'add', component: AddArticleComponent},
     { path: 'video', component: VideoComponent},
     { path: 'blogs', component: BlogsComponent},
+    { path: 'calendar', component: ClaendarComponent},
     { path: '*', component: MainComponent},
 ];
 
@@ -52,7 +56,9 @@ const appRoutes: Routes =[
     VideoComponent,
     ShowcaseComponent,
     BlogsComponent,
-    CommentsComponent
+    CommentsComponent,
+    ClaendarComponent,
+    DatePickerComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +69,8 @@ const appRoutes: Routes =[
     AngularFireModule.initializeApp(firebaseConfig),
     InfiniteScrollModule,
     CarouselModule.forRoot(),
-    DisqusModule
+    DatepickerModule.forRoot()
+  //  DisqusModule
 
   ],
   providers: [DataService],
