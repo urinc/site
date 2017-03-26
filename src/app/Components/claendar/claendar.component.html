@@ -1,36 +1,35 @@
 <div class = "calendar-container">
+ <div class= "date-picker-container" 
+ [ngClass]="{invisible: visibility}">
   <date-picker
    (onDateChanged)="onDateFromChanged($event)"
-   [direction] = "from"
-  
-   >
-  
- </date-picker>
-  
+   [direction] = "from"  >
+  </date-picker>
   <date-picker  
    (onDateChanged)="onDateToChanged($event)"
-  [direction] = "to">
-  
- </date-picker>
-<div class= "clear">
-</div>  
-<div *ngIf ="wrongDate">
-  <h2>Mistake in date selection  </h2>
-  </div>
-<button (click)="getItems()" > Search</button>
+   [direction] = "to">
+  </date-picker>
+  <div class= "clear">
+  </div><!--  clear-->
+   <button id="search-btn" (click)="getItems()" > 
+    Search
+  </button>
+</div>  <!--date-picker-container-->
+ <div *ngIf ="wrongDate">
+    <h2>Mistake in date selection  </h2>
+  </div> <!--wrongDate-->
+  <button 
+  [ngClass]="{invisible: !visibility}"
+  (click)="toggleVisibility()" > 
+    New search
+  </button>
 
- 
-
-<!--
-<div *ngIf = "itemList"
- class= "app-list">-->
   <app-list 
-  [itemsList]="itemsList" 
-  [classOfInitialPage]="classOfInitialPage"
+   [itemsList]="itemsList" 
+   [classOfInitialPage]="classOfInitialPage"
    [loadIndicator] = "loadIndicator">
     Loading...
-    </app-list>
-
+  </app-list>
 </div>    <!--calendar-container-->
 
 

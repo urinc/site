@@ -17,8 +17,8 @@ export class ClaendarComponent {
   classOfInitialPage = { mainSection: true };
   loadIndicator;
   wrongDate: boolean = false;
-
-
+  visibility: boolean = false;
+  
   constructor(private dataService: DataService) {
 
     this.loadIndicator = dataService.loadIndicator;
@@ -30,6 +30,7 @@ export class ClaendarComponent {
     this.endAt = date + 86400000;
   }
   getItems() {
+     this.toggleVisibility();
     if ((this.endAt - this.startAt) < 0) {
       this.wrongDate = true;
       return;
@@ -40,8 +41,11 @@ export class ClaendarComponent {
 
   }
 
+  toggleVisibility(){
+    this.wrongDate = false;
+     this.visibility = !this.visibility;
+  }
 
-
-
+  
 
 }

@@ -15,7 +15,7 @@ export class DataService {
   video: News[] = [];
   calendar: News[] = [];
   blogs: News[] = [];
-  loadIndicator = {state :false};
+  loadIndicator = { state: false };
 
   constructor(private angularFire: AngularFire) {
 
@@ -35,28 +35,28 @@ export class DataService {
         orderByChild: 'id',
         limitToLast: quantityInitial,          // initial items quantityInitial
       }
-    }).subscribe(list =>(list.forEach(element=>this.unshiftUniqueItem(element, this.NEWS))))
+    }).subscribe(list => (list.forEach(element => this.unshiftUniqueItem(element, this.NEWS))))
     //subscribe(list => this.pushUniqueList(this.reverseList(list), this.NEWS));
 
   }
   pushUniqueList(list: any[], array: any[]): void {
     list.forEach(element => this.pushUniqueItem(element, array))
-     this.loadIndicator.state = false;
-    
+    this.loadIndicator.state = false;
+
   }
-  unshiftUniqueItem(item, array){
+  unshiftUniqueItem(item, array) {
     for (let i = 0; i < array.length; i++) {
       if (array[i].id === item.id) { return }
     }
-             array.unshift(item);
-             if(this.loadIndicator.state)this.loadIndicator.state = false;
-             }
+    array.unshift(item);
+    if (this.loadIndicator.state) this.loadIndicator.state = false;
+  }
 
   pushUniqueItem(item, array: any[]): void {
     for (let i = 0; i < array.length; i++) {
       if (array[i].id === item.id) { return }
     }
-             array.push(item);
+    array.push(item);
   }
   reverseList(list: any[]): any[] {
     let tmp = [];
@@ -64,7 +64,7 @@ export class DataService {
     return tmp;
   }
   getLastItems(quantity: number): void {
-       this.loadIndicator.state = true;
+    this.loadIndicator.state = true;
     this.angularFire.database.list('/items', {
       query: {
         orderByChild: 'id',
@@ -73,7 +73,7 @@ export class DataService {
       }
     }).subscribe(list => this.pushUniqueList(this.reverseList(list), this.NEWS))
     //subscribe(list => list.forEach(element => this.pushUniqueItem(element, this.NEWS)))
-   
+
   }
   getMinId(array: any[]): number {
     let min = Math.min(
@@ -105,7 +105,7 @@ export class DataService {
     //
   }
   getDataByIdObservable(id) {
-      this.loadIndicator.state = true;
+    this.loadIndicator.state = true;
     return this.angularFire.database.list('/items', {
       query: {
         orderByChild: 'id',
@@ -122,32 +122,30 @@ export class DataService {
 
   }
   addVideoToArray(quantity: number): void {
-      this.loadIndicator.state = true;
-    let query = this.getQuery("video", (DataService.videoLimiToLast= DataService.videoLimiToLast + quantity));
+    this.loadIndicator.state = true;
+    let query = this.getQuery("video", (DataService.videoLimiToLast = DataService.videoLimiToLast + quantity));
     this.angularFire.database.list('/items', query)
       .subscribe(list => this.pushUniqueList(this.reverseList(list), this.video));
-     
+
   }
-  addToCalendar(start : number, end: number){
-      console.log("ds initial"+this.loadIndicator.state);
-     this.loadIndicator.state = true;
-    console.log("ds add"+this.loadIndicator.state);
-    if(this.calendar) this.calendar=[];
-   this.angularFire.database.list('/items', {
+  addToCalendar(start: number, end: number) {
+    this.loadIndicator.state = true;
+    if (this.calendar) this.calendar = [];
+    this.angularFire.database.list('/items', {
       query: {
-        orderByChild:'date',
-        startAt: start,//1489171852392,
+        orderByChild: 'date',
+        startAt: start,
         endAt: end,
       }
     })
-    .subscribe(list =>this.pushUniqueList(this.reverseList(list), this.calendar), 
-  //  e => console.log('onError: %s', e),
-   // () => console.log('onCompleted')
+      .subscribe(list => this.pushUniqueList(this.reverseList(list), this.calendar),
+      //  e => console.log('onError: %s', e),
+      // () => console.log('onCompleted')
     );
-    
-}
 
- getCalendar(){
-   return this.calendar;
- }
+  }
+
+  getCalendar() {
+    return this.calendar;
+  }
 }
