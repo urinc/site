@@ -10,11 +10,12 @@ import { News } from './../../_Shared/news';
 export class ListComponent implements OnInit, OnDestroy , AfterViewInit,AfterViewChecked, OnChanges{
  @Input () itemsList: News[];
  @Input () classOfInitialPage;
+ @Input () loadIndicator;
   static coords: number = 0;
   constructor() { }
 
   ngOnInit() {
-      console.log("oninit list component ")
+    
     
      }
 
@@ -24,16 +25,15 @@ ngAfterViewInit(){
 }
 
 ngAfterViewChecked(){
-//console.log(window);
+
 ListComponent.coords = window.pageYOffset;
-//console.log("view checked" +window.pageYOffset)
+
 }
 
  ngOnDestroy(){
- // console.log("destroy list component " + window.pageYOffset)
- // console.log(window.pageYOffset)
+ 
  }
 ngOnChanges(){
- //console.log(window.scrollY);
+
 }
 }

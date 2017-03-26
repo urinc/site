@@ -1,6 +1,8 @@
 <div class="video-container">
     <div class="items-list-continer">
-    <app-list [itemsList]="itemsList" [classOfInitialPage]="classOfInitialPage">
+    <app-list [itemsList]="itemsList" 
+    [loadIndicator] = "loadIndicator"
+    [classOfInitialPage]="classOfInitialPage">
     </app-list>
     </div> <!--items-list-conatiner-->
     <div class="right-panel">

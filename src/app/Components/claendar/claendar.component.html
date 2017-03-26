@@ -1,7 +1,9 @@
 <div class = "calendar-container">
   <date-picker
    (onDateChanged)="onDateFromChanged($event)"
-   [direction] = "from">
+   [direction] = "from"
+  
+   >
   
  </date-picker>
   
@@ -12,23 +14,29 @@
  </date-picker>
 <div class= "clear">
 </div>  
-
+<div *ngIf ="wrongDate">
+  <h2>Mistake in date selection  </h2>
+  </div>
 <button (click)="getItems()" > Search</button>
 
  
-<div *ngIf = "!itemsList && marker" > 
-   
-  Loading ...
-</div>  
 
 <!--
 <div *ngIf = "itemList"
  class= "app-list">-->
-  <app-list [itemsList]="itemsList" [classOfInitialPage]="classOfInitialPage">
+  <app-list 
+  [itemsList]="itemsList" 
+  [classOfInitialPage]="classOfInitialPage"
+   [loadIndicator] = "loadIndicator">
     Loading...
     </app-list>
 
 </div>    <!--calendar-container-->
+
+
+
+
+
 
   
   

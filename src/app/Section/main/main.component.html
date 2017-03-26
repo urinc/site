@@ -9,7 +9,11 @@
   <div class="list-panel-container">
 
     <div class="list-wrapper">
-    <app-list [itemsList]="itemsList" [classOfInitialPage]="classOfInitialPage">
+    <app-list 
+    [itemsList]="itemsList" 
+    [classOfInitialPage]="classOfInitialPage"
+    [loadIndicator] = "loadIndicator"
+    >
       </app-list>
   
     </div>

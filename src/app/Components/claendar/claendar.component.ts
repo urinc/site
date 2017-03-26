@@ -13,30 +13,34 @@ export class ClaendarComponent {
   endAt: number;
   from: string = "From";
   to: string = "To "
-  itemsList : News[];
-classOfInitialPage = {mainSection :true};
+  itemsList: News[];
+  classOfInitialPage = { mainSection: true };
+  loadIndicator;
+  wrongDate: boolean = false;
 
-  marker : boolean = false;
-  marker1 : boolean = true;
+
   constructor(private dataService: DataService) {
- 
-  }
 
+    this.loadIndicator = dataService.loadIndicator;
+  }
   onDateFromChanged(date) {
     this.startAt = date;
   }
-
   onDateToChanged(date) {
-    this.endAt = date+86400000;   
+    this.endAt = date + 86400000;
   }
-
   getItems() {
+    if ((this.endAt - this.startAt) < 0) {
+      this.wrongDate = true;
+      return;
+    }
+    this.wrongDate = false;
     this.dataService.addToCalendar(this.startAt, this.endAt);
-    this.itemsList   = this.dataService.getCalendar();
-    this.marker =true;
+    this.itemsList = this.dataService.getCalendar();
+
   }
 
-  
+
 
 
 

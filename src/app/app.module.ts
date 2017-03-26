@@ -27,6 +27,7 @@ import { BlogsComponent } from './section/blogs/blogs.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { ClaendarComponent } from './Components/claendar/claendar.component';
 import { DatePickerComponent } from './Components/date-picker/date-picker.component';
+import { SpinnerComponent } from './Components/spinner/spinner.component';
 
 
 const appRoutes: Routes =[
@@ -58,7 +59,8 @@ const appRoutes: Routes =[
     BlogsComponent,
     CommentsComponent,
     ClaendarComponent,
-    DatePickerComponent
+    DatePickerComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,

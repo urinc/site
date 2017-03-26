@@ -15,11 +15,11 @@ export class MainComponent implements OnInit {
 
    
   classOfInitialPage = { mainSection: true };
-
+  loadIndicator;
   itemsList: News[];
   videoList: News[];
   constructor(private dataService: DataService) {
-
+  this.loadIndicator = dataService.loadIndicator;
    
   }
 

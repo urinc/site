@@ -17,9 +17,10 @@ export class VideoComponent implements OnInit {
 classOfInitialPage = {videoSection :true};
 
  itemsList:  News[];
-
+loadIndicator;
   constructor(private dataService : DataService) { 
     this. itemsList = this.dataService.getVideo();
+    this.loadIndicator = dataService.loadIndicator;
   }
 
   ngOnInit() {

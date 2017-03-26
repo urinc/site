@@ -19,11 +19,13 @@ export class FullItemComponent implements OnInit {
   constructor(
     private activateRoute: ActivatedRoute,
     private dataService: DataService) {
-    this.id = activateRoute.snapshot.params['id'];
+  
   }
 
 
   ngOnInit() {
+    console.log("full item init");
+  this.id = this.activateRoute.snapshot.params['id'];
     if (this.dataService.getDataById(this.id) == -1) {
       if (!this.item) {
             this.dataService.getDataByIdObservable(this.id)

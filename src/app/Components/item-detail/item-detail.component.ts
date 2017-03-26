@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
 import { News } from '../../_Shared/news';
@@ -19,22 +18,23 @@ export class ItemDetailComponent implements OnInit,AfterViewInit {
   ident : string;
   @Input() item: News;
 
- constructor(private route:ActivatedRoute) {
+ constructor() {
   
 }
 
 
 ngAfterViewInit(){
   
- window.scrollTo(0, 0 );
+ 
 }
    ngOnInit() {
     
-     this.pageUrl = "http://news/" +this.item.id;
+     this.pageUrl = "http://195.138.78.131/newsApp/#/item/" +this.item.id;
+    
   
      }
  ngOnDestroy(){
-  // console.log("Ondestroy -item"  + this.item.id)
+  
  }
 
 }
