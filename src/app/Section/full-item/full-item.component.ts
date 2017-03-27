@@ -24,7 +24,8 @@ export class FullItemComponent implements OnInit {
 
 
   ngOnInit() {
-    console.log("full item init");
+
+    window.scrollTo(0,0);
   this.id = this.activateRoute.snapshot.params['id'];
     if (this.dataService.getDataById(this.id) == -1) {
       if (!this.item) {

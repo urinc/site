@@ -50,3 +50,11 @@ img{
    
     
 }
+
+
+.my-class{
+    width: 100px;
+    border: solid 3px red;
+    height: 100px;
+    content : " New!";
+}

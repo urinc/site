@@ -35,6 +35,7 @@ const appRoutes: Routes =[
     { path: 'item/:id', component: FullItemComponent},
     { path: 'add', component: AddArticleComponent},
     { path: 'video', component: VideoComponent},
+    { path: 'news', component: NewsComponent},
     { path: 'blogs', component: BlogsComponent},
     { path: 'calendar', component: ClaendarComponent},
     { path: '*', component: MainComponent},

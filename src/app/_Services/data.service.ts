@@ -9,9 +9,11 @@ export class DataService {
   items: FirebaseListObservable<any>;
 
   static videoLimiToLast = 0;
+  static onlyNewsLimiToLast = 0;
   static articlesLimiToLast = 0;
   static blogsLimiToLast = 0;
   NEWS: News[] = [];
+  onlyNews : News[] = [];
   video: News[] = [];
   calendar: News[] = [];
   blogs: News[] = [];
@@ -123,7 +125,7 @@ export class DataService {
   }
   addVideoToArray(quantity: number): void {
     this.loadIndicator.state = true;
-    let query = this.getQuery("video", (DataService.videoLimiToLast = DataService.videoLimiToLast + quantity));
+    let query = this.getQuery("video", (DataService.videoLimiToLast += quantity));
     this.angularFire.database.list('/items', query)
       .subscribe(list => this.pushUniqueList(this.reverseList(list), this.video));
 
@@ -145,6 +147,17 @@ export class DataService {
 
   }
 
+   getOnlyNews(): News[] {
+    return this.onlyNews;
+
+  }
+  addOnlyNewsToArray(quantity: number): void {
+    this.loadIndicator.state = true;
+    let query = this.getQuery("news", (DataService.onlyNewsLimiToLast += quantity));
+    this.angularFire.database.list('/items', query)
+      .subscribe(list => this.pushUniqueList(this.reverseList(list), this.onlyNews));
+
+  }
   getCalendar() {
     return this.calendar;
   }

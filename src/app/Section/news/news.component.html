@@ -1,3 +1,15 @@
-<p>
-  news works!
-</p>
+<div class="news-container">
+    <div class="items-list-continer">
+    <app-list [itemsList]="itemsList" 
+    [loadIndicator] = "loadIndicator"
+    [classOfInitialPage]="classOfInitialPage">
+    </app-list>
+    </div> <!--items-list-conatiner-->
+    <div class="right-panel">
+       right panel
+    </div><!--right-panlel-->
+    
+</div><!--news-container-->
+
+<div infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="300" (scrolled)="moreItems()">
+</div>

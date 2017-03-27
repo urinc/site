@@ -29,7 +29,7 @@ ngAfterViewInit(){
 }
    ngOnInit() {
     
-     this.pageUrl = "http://195.138.78.131/newsApp/#/item/" +this.item.id;
+   
     
   
      }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from './../../_Services/data.service';
+import { News } from './../../_Shared/news';
 
 @Component({
   selector: 'app-news',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewsComponent implements OnInit {
 
-  constructor() { }
+ 
+classOfInitialPage = {mainSection :true};
+
+ itemsList:  News[];
+loadIndicator;
+  constructor(private dataService : DataService) { 
+    this.dataService.addOnlyNewsToArray(10);
+    this. itemsList = this.dataService.getOnlyNews();
+    this.loadIndicator = dataService.loadIndicator;
+  }
 
   ngOnInit() {
+   
+  }
+
+ moreItems() {
+    this.dataService.addOnlyNewsToArray(10);
+    
   }
 
 }
