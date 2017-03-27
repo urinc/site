@@ -1,4 +1,7 @@
-import { Component, ElementRef, OnInit, Renderer} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { DataService } from './../../_Services/data.service';
+import { News } from './../../_Shared/news';
+
 
 @Component({
   selector: 'app-blogs',
@@ -7,26 +10,24 @@ import { Component, ElementRef, OnInit, Renderer} from '@angular/core';
 })
 export class BlogsComponent implements OnInit {
 
-  constructor(private el: ElementRef, private renderer: Renderer) { }
+classOfInitialPage = {videoSection :true};
+
+ itemsList:  News[];
+loadIndicator;
+  constructor(private dataService : DataService) { 
+    this.dataService.addBlogsToArray(5);
+    this. itemsList = this.dataService.getBlogs();
+    this.loadIndicator = dataService.loadIndicator;
+
+  }
 
   ngOnInit() {
-let div = this.renderer.createElement(this.el.nativeElement, 'div');
-let scr = this.renderer.createElement(this.el.nativeElement, 'script');
-let p = this.renderer.createElement(div, 'p');
-let h1 = this.renderer.createElement(this.el.nativeElement, 'h1');
+   
+  }
 
-
-
-
-p.textContent = "hello";
-this.renderer.setElementClass(p, "my-class", true);
-
-
-//console.log(this.el.nativeElement.parentNode);
-console.log(this.el.nativeElement);
-console.log(this.el)
-
-
+ moreItems() {
+    this.dataService.addVideoToArray(5);
+    
   }
 
 }

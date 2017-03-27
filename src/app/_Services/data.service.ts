@@ -13,7 +13,7 @@ export class DataService {
   static articlesLimiToLast = 0;
   static blogsLimiToLast = 0;
   NEWS: News[] = [];
-  onlyNews : News[] = [];
+  onlyNews: News[] = [];
   video: News[] = [];
   calendar: News[] = [];
   blogs: News[] = [];
@@ -146,8 +146,10 @@ export class DataService {
     );
 
   }
-
-   getOnlyNews(): News[] {
+  getCalendar() {
+    return this.calendar;
+  }
+  getOnlyNews(): News[] {
     return this.onlyNews;
 
   }
@@ -156,9 +158,20 @@ export class DataService {
     let query = this.getQuery("news", (DataService.onlyNewsLimiToLast += quantity));
     this.angularFire.database.list('/items', query)
       .subscribe(list => this.pushUniqueList(this.reverseList(list), this.onlyNews));
+  }
 
+
+ getBlogs(): News[] {
+    return this.blogs;
   }
-  getCalendar() {
-    return this.calendar;
+
+ addBlogsToArray(quantity: number): void {
+    this.loadIndicator.state = true;
+    let query = this.getQuery("blog", (DataService.blogsLimiToLast += quantity));
+    this.angularFire.database.list('/items', query)
+      .subscribe(list => this.pushUniqueList(this.reverseList(list), this.blogs));
   }
+
+
+
 }

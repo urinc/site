@@ -1,3 +1,33 @@
+<div class="blogs-container">
+    <div class="items-list-continer">
+    <app-list [itemsList]="itemsList" 
+    [loadIndicator] = "loadIndicator"
+    [classOfInitialPage]="classOfInitialPage">
+    </app-list>
+    </div> <!--items-list-conatiner-->
+    <div class="right-panel">
+        bla bla bla
+    </div><!--right-panlel-->
+    
+</div><!--blogs-container-->
+<div infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="300" (scrolled)="moreItems()">
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!--<div class= "slider-container">
 <carousel>
   <slide>
@@ -79,6 +109,9 @@
 
 
 
--->
+
 <disqus-comp [identifier] = "25">
   </disqus-comp>
+
+
+  -->
