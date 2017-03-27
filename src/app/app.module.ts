@@ -10,6 +10,7 @@ import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 import { DatepickerModule } from 'ng2-bootstrap/datepicker';
 //import { DisqusModule } from "ng2-awesome-disqus";
 
+
 import { AppComponent } from './app.component';
 import { DataService } from './_Services/data.service';
 import { MainComponent } from './Section/main/main.component';
@@ -76,7 +77,7 @@ const appRoutes: Routes =[
   //  DisqusModule
 
   ],
-  providers: [DataService],
+  providers: [DataService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

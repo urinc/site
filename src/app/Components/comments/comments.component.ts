@@ -14,6 +14,7 @@ export class CommentsComponent implements OnInit {
     this.dom = el.nativeElement;
   }
   ngOnInit() {
+    //this.fbFunc();
         if ((<any>window).DISQUS === undefined) {
       this.addScriptTag();
     }
@@ -26,7 +27,7 @@ export class CommentsComponent implements OnInit {
 
   }
   reset() {
-    console.log("comments reset()");
+    //console.log("comments reset()");
     (<any>window).DISQUS.reset({
       reload: true,
       config: this.getConfig(),
@@ -44,14 +45,21 @@ export class CommentsComponent implements OnInit {
    let identifier = this.identifier;
      return function () {
       this.page.title =  "news-item/"+ identifier;
-      this.page.identifier =  "http://195.138.78.131/newsApp/#/item/"+ identifier;
-      this.page.url = "http://195.138.78.131/newsApp/#/item/"+ identifier//window.location.href;
+      this.page.identifier =  "http://195.138.78.131/newsApp/%23/item/"+ identifier;
+      //"http://195.138.78.131/newsApp/%23/item/"+ identifier
+      this.page.url = "http://195.138.78.131/newsApp/%23/item/"+ identifier;
       this.language = 'en';
      // debugger;
     };
   }
 
- 
+  fbFunc(){
+    let script = this.renderer.createElement(this.el.nativeElement, 'script');
+     script.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.8";
+     script.setAttribute('id', 'facebook-jssdk');
+     script.async = true;
+     script.type = 'text/javascript';
+  }
 
 
 }
