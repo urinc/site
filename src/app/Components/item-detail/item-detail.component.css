@@ -6,9 +6,10 @@
 }
 
 .detail-component{
-  /*  border: solid blue 3px;*/
+   /* border: solid blue 3px;*/
     float : left;
     max-width: 75%;
+    overflow:hidden
      
 }
 

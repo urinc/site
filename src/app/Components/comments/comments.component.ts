@@ -34,8 +34,6 @@ export class CommentsComponent implements OnInit {
   }
   addScriptTag() {
     (<any>window).disqus_config = this.getConfig();
-    
-    console.log((<any>window).disqus_config);
     let script = this.renderer.createElement(this.el.nativeElement, 'script');
     script.src = 'https://break-news.disqus.com/embed.js';
     script.async = true;

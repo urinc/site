@@ -11,7 +11,9 @@
      <div class = "avatar">
     <img src = {{item.avatar}}>
     </div> <!--avatar-->
-    <div class  = "body" [innerHTML] = "item.body"></div>  <!--item-body-->
+<!--<div class  = "body" [innerHTML] = "item.body">-->
+   <div class  = "body" [innerHTML] = "bodySanitized">      
+    </div>  <!--body-->
 
 
   </div>   <!--detail-cmponent-->
@@ -28,3 +30,13 @@
 
 <div class= "clr">
 </div>  <!--clr-->
+<!--
+<p>sanitized </p>
+  <div  [innerHTML] = "sanit3"></div>
+  <p>html </p>-->
+<!--<iframe 
+width="500" 
+height="300" 
+src="https://www.youtube.com/embed/Wvyp6uQGfos" 
+frameborder="0" 
+allowfullscreen></iframe>-->
