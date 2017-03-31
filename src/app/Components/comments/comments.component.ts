@@ -1,5 +1,6 @@
 import { Component, Input, ElementRef, OnInit, Renderer } from '@angular/core';
 
+
 @Component({
   selector: 'disqus-comp',
   template: '<div id="disqus_thread"></div>',
@@ -8,26 +9,25 @@ import { Component, Input, ElementRef, OnInit, Renderer } from '@angular/core';
 export class CommentsComponent implements OnInit {
 
   @Input() public identifier: string;
-  dom: any;
+ 
+
+  constructor(private el: ElementRef, 
+              private renderer: Renderer) { }
   
-  constructor(private el: ElementRef, private renderer: Renderer) {
-    this.dom = el.nativeElement;
-  }
   ngOnInit() {
-    //this.fbFunc();
-        if ((<any>window).DISQUS === undefined) {
-      this.addScriptTag();
+   
+    if ((<any>window).DISQUS === undefined) {
+        this.addScriptTag();
     }
     else {
       this.reset();
-    }
-
-
-
-
+    } 
   }
+
+
+  
+
   reset() {
-    //console.log("comments reset()");
     (<any>window).DISQUS.reset({
       reload: true,
       config: this.getConfig(),
@@ -40,27 +40,18 @@ export class CommentsComponent implements OnInit {
     script.async = true;
     script.type = 'text/javascript';
     script.setAttribute('data-timestamp', new Date().getTime().toString());
+     
   }
   getConfig() {
-   let identifier = this.identifier;
-     return function () {
-      this.page.title =  "news-item/"+ identifier;
-      this.page.identifier =  "http://195.138.78.131/newsApp/%23/item/"+ identifier;
-      //"http://195.138.78.131/newsApp/%23/item/"+ identifier
-      this.page.url = "http://195.138.78.131/newsApp/%23/item/"+ identifier;
+    let identifier = this.identifier;
+    return function () {
+   //   this.page.title = "News/" + identifier;
+     // this.page.identifier = "item/" + identifier;
+      this.page.url = "http://195.138.78.131/newsApp/item/" + identifier;
       this.language = 'en';
-     // debugger;
-    };
-  }
-
-  fbFunc(){
-    let script = this.renderer.createElement(this.el.nativeElement, 'script');
-     script.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.8";
-     script.setAttribute('id', 'facebook-jssdk');
-     script.async = true;
-     script.type = 'text/javascript';
-  }
-
-
+   }
+ }
 }
+
+
 

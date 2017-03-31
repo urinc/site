@@ -27,14 +27,29 @@
      font-size: 1.2em ;
      font-weight: bold;
    }
+  
+   .mainSection .stamp, .author, .comments{
+   
+   margin : 1% 0 1% 5%;
+ }
    .mainSection .author:before {
       content: " ͡๏̮͡๏ :" }
    .mainSection .stamp:before {
       content: "☄ :" }   
+      .mainSection .comments:before {
+      content: "✌  :" }   
  .mainSection .stamp{
       margin-left: 5%;
-      float: left
+      float: left;
+      font-size: 0.8em;
  }   
+
+.mainSection .author{
+  float:left;    
+  margin-right: 5%;
+ }
+
+
  .mainSection .image-container{
    position : relative;
     width : 250px;
@@ -99,11 +114,7 @@
     opacity: 1;
     transition: opacity 0.5s, visibility 0.5s, height 0.5s;
  }
- .mainSection .stamp, .author{
-   font-size: 0.8em;
-   margin : 1% 0 1% 30%;
-
- }
+ 
    /*-------Video Section--------------*/
 
  .videoSection .item-container{

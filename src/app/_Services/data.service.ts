@@ -1,5 +1,7 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable, ElementRef, Renderer  } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2'
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import {DOCUMENT} from '@angular/platform-browser'
 
 import { News } from '../_Shared/news'
 
@@ -17,13 +19,23 @@ export class DataService {
   video: News[] = [];
   calendar: News[] = [];
   blogs: News[] = [];
+  lastweeks : News[] =[];
+  commentsCounter = [];
+
   loadIndicator = { state: false };
 
-  constructor(private angularFire: AngularFire) {
-
+  constructor( //private document: Document,
+    private angularFire: AngularFire,
+              private http: Http,
+              
+            //  private el: ElementRef,
+            //  private renderer: Renderer   
+            ) {
+  //  this.disqWidgetCreate();
     this.getInitialLastItems(5);
     this.items = angularFire.database.list('/items');
     this.addVideoToArray(6);
+    this. addToLastWeeks(14);
   }
   getQuery(category: string, limiToLast: number): {} {
     return {
@@ -53,7 +65,6 @@ export class DataService {
     array.unshift(item);
     if (this.loadIndicator.state) this.loadIndicator.state = false;
   }
-
   pushUniqueItem(item, array: any[]): void {
     for (let i = 0; i < array.length; i++) {
       if (array[i].id === item.id) { return }
@@ -141,8 +152,7 @@ export class DataService {
       }
     })
       .subscribe(list => this.pushUniqueList(this.reverseList(list), this.calendar),
-      //  e => console.log('onError: %s', e),
-      // () => console.log('onCompleted')
+     
     );
 
   }
@@ -159,18 +169,58 @@ export class DataService {
     this.angularFire.database.list('/items', query)
       .subscribe(list => this.pushUniqueList(this.reverseList(list), this.onlyNews));
   }
-
-
- getBlogs(): News[] {
+  getBlogs(): News[] {
     return this.blogs;
   }
-
- addBlogsToArray(quantity: number): void {
+  addBlogsToArray(quantity: number): void {
     this.loadIndicator.state = true;
     let query = this.getQuery("blog", (DataService.blogsLimiToLast += quantity));
     this.angularFire.database.list('/items', query)
       .subscribe(list => this.pushUniqueList(this.reverseList(list), this.blogs));
   }
+  addToLastWeeks(days) {
+    let start : number = Date.now() -(days*86400000);
+    let end = Date.now() + 86400000;
+    if (this.lastweeks.length>0) return;
+    this.angularFire.database.list('/items', {
+      query: {
+        orderByChild: 'date',
+        startAt: start,
+        endAt: end,
+      }
+    }).subscribe(list => this.pushUniqueList(this.reverseList(list), this.lastweeks),
+     
+    );
+
+  }
+   getLastWeeks() {
+    return this.lastweeks;
+  }
+
+
+
+/*addScriptCounter(id) {
+  let script = this.document.createElement('script');
+    script.src =  `https://break-news.disqus.com/count-data.js?
+                   2=http://195.138.78.131/newsApp/item/` + id;
+                   script.async = true;
+    script.type = 'text/javascript';
+}
+*/
+
+disqWidgetCreate() {
+    if ((<any>window).DISQUSWIDGETS === undefined) {
+      (<any>window).DISQUSWIDGETS = {};
+      let self = this;
+      (<any>window).DISQUSWIDGETS.displayCount = function (response) {
+        if (response.counts.length > 0) {
+          let count = response.counts[0].comments;
+          console.log(response.counts[0]);
+        }
+      }
+    }
+  }
+
 
 
 

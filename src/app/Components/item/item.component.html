@@ -15,8 +15,10 @@
     </div>    <!-- pointer title-->
     <div class="stamp"> {{item.date | date:'medium' }} &nbsp;&nbsp;
     </div>    <!--stamp-->
-    <div class="author"> &nbsp; {{item.author}}
+    <div class="author"> &nbsp; {{item.author}}&nbsp;
     </div>    <!--author-->
+    <div class="comments">  &nbsp; {{comments.count}}
+    </div>    <!--comments-->
     <div class="intro">{{intro}}
     </div> <!--intro-->
     <div class="article-body" [ngClass]="{minimized: visibility ,maximized : !visibility} " > 
@@ -32,4 +34,3 @@
 <div class="after-box">
 <div>  
 
-  

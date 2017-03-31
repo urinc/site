@@ -3,11 +3,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { Routes, RouterModule } from  '@angular/router';
-import { CarouselModule } from 'ng2-bootstrap/carousel';
 import { AngularFireModule } from 'angularfire2'
 import { firebaseConfig } from '../environments/firebase.config'
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 import { DatepickerModule } from 'ng2-bootstrap/datepicker';
+import {JsonpModule} from '@angular/http';
 //import { DisqusModule } from "ng2-awesome-disqus";
 
 
@@ -29,6 +29,7 @@ import { CommentsComponent } from './components/comments/comments.component';
 import { ClaendarComponent } from './Components/claendar/claendar.component';
 import { DatePickerComponent } from './Components/date-picker/date-picker.component';
 import { SpinnerComponent } from './Components/spinner/spinner.component';
+import { TopCommentedComponent } from './Components/top-commented/top-commented.component';
 
 
 const appRoutes: Routes =[
@@ -39,7 +40,9 @@ const appRoutes: Routes =[
     { path: 'news', component: NewsComponent},
     { path: 'blogs', component: BlogsComponent},
     { path: 'calendar', component: ClaendarComponent},
+    { path: 'TMP', component: TopCommentedComponent},
     { path: '*', component: MainComponent},
+    
 ];
 
 
@@ -62,7 +65,8 @@ const appRoutes: Routes =[
     CommentsComponent,
     ClaendarComponent,
     DatePickerComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    TopCommentedComponent
   ],
   imports: [
     BrowserModule,
@@ -72,8 +76,9 @@ const appRoutes: Routes =[
     HttpModule,
     AngularFireModule.initializeApp(firebaseConfig),
     InfiniteScrollModule,
-    CarouselModule.forRoot(),
-    DatepickerModule.forRoot()
+   
+    DatepickerModule.forRoot(),
+    JsonpModule,
   //  DisqusModule
 
   ],
