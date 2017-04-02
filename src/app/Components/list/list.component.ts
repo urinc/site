@@ -25,7 +25,7 @@ export class ListComponent implements OnInit, OnDestroy, AfterViewInit, AfterVie
   }
 
   ngAfterViewChecked() {
-    console.log(ListComponent.coords)
+ 
     if (!this.classOfInitialPage.thumbNail)
     ListComponent.coords = window.pageYOffset;
 

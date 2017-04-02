@@ -1,26 +1,17 @@
 .detail-component-side-panel-conatiner{
-    width : 95%;
-    max-width: 1200px;
+   
+    
     padding : 1% 1% 0% 2%;
      font-family: 'Roboto';
 }
 
 .detail-component{
-   /* border: solid blue 3px;*/
-    float : left;
-    max-width: 75%;
-    overflow:hidden
-     
+    max-width: 900px;
+   float : left;
+   overflow:hidden ;
+   
 }
 
-.community-na
-me{
-    color:red
-}
-.disqus{
-     /*max-width: 75%;*/
-      margin : 5%;
-}
 
 .detail-component img {
     max-width : 90%;
@@ -38,19 +29,6 @@ me{
   float: left
     }   
 
-
-.side-panel{
-   border: solid 1px rgb(221, 221, 221);
-  overflow : hidden;
-   background-color: #F0FFF0;
-  margin-left : 75%;
-
- 
- 
-  margin-top : 15x;
-  width : 25%
-  }
-  
   .clr{
       clear:both
   }
@@ -63,8 +41,7 @@ me{
      padding : 3px;
      opacity : 0.6;
      text-shadow: 1px 1px 1px #333;
-     color : white;
-     
+     color : white;     
       
    }
 

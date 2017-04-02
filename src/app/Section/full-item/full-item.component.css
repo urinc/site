@@ -1,7 +1,7 @@
 .disqus{
    
-     max-width: 65%;
-     margin-left:5%
+     max-width: 85%;
+     margin-left:7%
 }
 
 .full-item-container{
@@ -10,6 +10,7 @@
 }
 
 .item-detail{
+  
     width: 75%;
     float :left;
   
@@ -21,6 +22,6 @@
   background-color: #F0FFF0;
   margin-left : 75%;
   margin-top: 40px;
-  width: 260px;
+  width: 300px;
 }
 

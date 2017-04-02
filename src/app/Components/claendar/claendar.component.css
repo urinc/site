@@ -1,19 +1,10 @@
- .full button span {
-    background-color: limegreen;
-    border-radius: 32px;
-    color: black;
-  }
-  .partially button span {
-    background-color: orange;
-    border-radius: 32px;
-    color: black;
-  }
+
   .clear{
       clear: both;
   }
 
 .calendar-container{
-    max-width: 1000px;
+    max-width: 900px;
     margin: auto;
 }
 
