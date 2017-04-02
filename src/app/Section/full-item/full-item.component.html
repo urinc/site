@@ -1,26 +1,14 @@
-   
-<div *ngIf ="!item" 
-class= "spinner" >
-<app-spinner>
-  </app-spinner>
-
-</div> <!--spinner-->
-
-
-
-  
-    <div *ngIf= "item">
-
-<app-item-detail  [item] = "item">
-  </app-item-detail>
-
-<div>
-
- <div class = "disqus">
- <disqus-comp  
-  [identifier]="id"   >
-
-  </disqus-comp>
-  </div>  <!--disqus-->
-
-
+<div class="full-item-container">
+  <div *ngIf="!item" class="spinner">
+    <app-spinner>
+    </app-spinner>
+  </div>  <!--spinner-->
+  <div *ngIf="item">
+    <app-item-detail [item]="item">
+    </app-item-detail>
+   <div>
+      <div class="disqus">
+       <disqus-comp [identifier]="id">
+       </disqus-comp>
+      </div><!--disqus-->
+  </div>  <!--full-item-container-->

@@ -19,12 +19,12 @@ classOfInitialPage = {videoSection :true};
  itemsList:  News[];
 loadIndicator;
   constructor(private dataService : DataService) { 
-    this. itemsList = this.dataService.getVideo();
-    this.loadIndicator = dataService.loadIndicator;
+    
   }
 
   ngOnInit() {
-   
+   this. itemsList = this.dataService.getVideo();
+    this.loadIndicator = this.dataService.loadIndicator;
   }
 
  moreItems() {
@@ -33,3 +33,8 @@ loadIndicator;
   }
 
 }
+
+
+
+
+

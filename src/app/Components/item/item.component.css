@@ -125,6 +125,8 @@
    padding : 1%;
    height : 550px;
    position: relative;
+   overflow: hidden;
+
  }
 .videoSection .image-container .category{
      position : absolute;
@@ -169,15 +171,159 @@
 .videoSection .id{
      display: none
    }
-.videoSection .author:before {
-      content: " ͡๏̮͡๏ :" }
+
 .videoSection .stamp {
       float:left;
-      margin-left :3% }
+      margin-left :3%;
+ }
+
+.videoSection .author {
+      float:left;
+      margin-left :4%; 
+      margin-right:5%}
+
 .videoSection .stamp:before {
        content: "☄ :" }   
+
+.videoSection .comments:before {
+      content: "✌  :" }   
+
+.videoSection .author:before {
+      content: " ͡๏̮͡๏ :" ;
+}
+
 .videoSection .title {
      font-size: 1.2em ;
      font-weight: bold;
      cursor: pointer;
    }
+
+      /*-------ThumbNail--------------*/
+     
+.thumbNail .pointer{
+   cursor: pointer;
+   }
+ .thumbNail img { 
+   border-radius: 1px;
+  
+   float:left;
+   margin-left : 1%;
+  
+   width : 70px;
+   max-height: 170 px
+}
+ .thumbNail .item-container{
+   border-bottom: solid 1px rgb(221, 221, 221);
+    max-width :260px;
+    overflow: hidden;
+    padding: 10px;
+    padding-top: 10px;
+    font-family: "Roboto-Regular";
+    font-size: 0.8em ;
+    position: relative;
+}
+   
+   .thumbNail .id{
+     display: none
+   }
+    
+ /*  .thumbNail .stamp, .author, .comments{
+   
+   margin : 1% 0 1% 5%;
+ }*/
+  
+ .thumbNail .comments:before {
+  content: "✌  :" }   
+  .thumbNail .comments{
+  text-align: center;
+  position: absolute;
+  bottom :5px;
+  left:5px;
+  font-weight: bold;
+  }   
+
+ .thumbNail .stamp{
+      display: none; 
+      margin-left: 5%;
+      float: left;
+      font-size: 0.8em;
+ }   
+
+.thumbNail .author{
+  float:left;    
+  margin-right: 5%;
+  display: none; 
+ }
+
+
+ .thumbNail .image-container{
+   position : relative;
+    width : 70px;
+ }
+ .thumbNail .image-container .read-time{
+   display : block;
+   position : absolute;
+   top : 60px;
+   left: 50px;
+   color: white;
+   text-shadow: 2px 2px 2px black;
+   transition:all 0.2s ease;
+   opacity: 0.8;
+   visibility:hidden;
+  
+ }
+.thumbNail .category{
+     visibility : hidden;
+     position : absolute;
+     right:  4px;
+     top : 8px;
+     background-color: dodgerblue;
+     border-radius: 5px;
+     padding : 3px;
+     opacity : 1;
+     text-shadow: 1px 1px 1px #333;
+     color : white;      
+}
+
+
+/*.thumbNail .image-container:hover { 
+     box-shadow: inset 0 0 0 5px darkslategrey;
+     opacity: 0.8;
+     visibility:visible;
+}
+.thumbNail .image-container:hover .read-time{
+     visibility:visible;
+}
+  .thumbNail .intro:after{
+   content: "...";
+   font-size: 1.1em
+ }
+  .thumbNail .intro{
+   font-family: "Roboto-Regular"
+ }
+ */
+ .thumbNail .literal-part {
+    margin-left : 75px;
+ }
+
+  .thumbNail .literal-part p{
+    text-align: center;
+    cursor : pointer
+ }
+ .thumbNail .minimized{
+   height: 0px;
+   visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s, visibility 0.5s,  height 0.5s;
+ }
+ .thumbNail .maximized{
+    height : auto;
+  visibility: visible;
+    opacity: 1;
+    transition: opacity 0.5s, visibility 0.5s, height 0.5s;
+ }
+ 
+ .thumbNail .intro, .asterix{
+   display: none;
+    }
+ 

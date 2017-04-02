@@ -82,7 +82,7 @@ const appRoutes: Routes =[
   //  DisqusModule
 
   ],
-  providers: [DataService ],
+  providers: [DataService,  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

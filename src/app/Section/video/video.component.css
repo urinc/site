@@ -1,6 +1,6 @@
 .video-container{
    
-    width: 90%;
+     max-width: 1200px;
     margin: auto;
 }
 
@@ -9,8 +9,11 @@
     float:left;
 }
 .right-panel{
-    background-color: palegoldenrod;
-      width: 300px;
-    margin-left: 70%;
-    height: 600px
+  border: solid 1px rgb(221, 221, 221);
+  overflow : hidden;
+  background-color: #F0FFF0;
+  margin-left : 75%;
+  margin-top: 40px;
+  width: 260px;
 }
+

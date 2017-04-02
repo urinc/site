@@ -1,4 +1,10 @@
 .disqus{
+   
+     max-width: 65%;
+}
+
+.full-item-container{
     margin: auto;
-     max-width: 75%;
+    text-align: center;
+    width: 1200px
 }

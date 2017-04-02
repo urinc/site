@@ -40,13 +40,14 @@ me{
 
 
 .side-panel{
-    
-     background-color: peachpuff;
-  height : 300px;
+   border: solid 1px rgb(221, 221, 221);
   overflow : hidden;
-  padding : 20px;
+   background-color: #F0FFF0;
   margin-left : 75%;
-  margin-top : 150px;
+
+ 
+ 
+  margin-top : 15x;
   width : 25%
   }
   

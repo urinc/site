@@ -1,7 +1,6 @@
-import { Injectable, ElementRef, Renderer  } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2'
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import {DOCUMENT} from '@angular/platform-browser'
+import { Http, Jsonp, URLSearchParams } from '@angular/http';
 
 import { News } from '../_Shared/news'
 
@@ -19,23 +18,23 @@ export class DataService {
   video: News[] = [];
   calendar: News[] = [];
   blogs: News[] = [];
-  lastweeks : News[] =[];
+  topComments: News[] = [];
   commentsCounter = [];
-
   loadIndicator = { state: false };
 
-  constructor( //private document: Document,
-    private angularFire: AngularFire,
-              private http: Http,
-              
-            //  private el: ElementRef,
-            //  private renderer: Renderer   
-            ) {
-  //  this.disqWidgetCreate();
+
+
+  constructor(private angularFire: AngularFire,
+    private jsonp: Jsonp) {
     this.getInitialLastItems(5);
     this.items = angularFire.database.list('/items');
     this.addVideoToArray(6);
-    this. addToLastWeeks(14);
+    this.addTopComments(7, 10);
+
+    setInterval(() => {
+      //  console.log(this.topComments);
+    }, 5000);
+
   }
   getQuery(category: string, limiToLast: number): {} {
     return {
@@ -58,18 +57,21 @@ export class DataService {
     this.loadIndicator.state = false;
 
   }
-  unshiftUniqueItem(item, array) {
+  unshiftUniqueItem(item : News, array : any[]): void {
     for (let i = 0; i < array.length; i++) {
       if (array[i].id === item.id) { return }
     }
     array.unshift(item);
-    if (this.loadIndicator.state) this.loadIndicator.state = false;
+     if (this.loadIndicator.state)
+      this.loadIndicator.state = false;
   }
   pushUniqueItem(item, array: any[]): void {
     for (let i = 0; i < array.length; i++) {
       if (array[i].id === item.id) { return }
     }
     array.push(item);
+    //  if (!this.commentsCounter[item.id])
+    //  this.getCommentCount(item);
   }
   reverseList(list: any[]): any[] {
     let tmp = [];
@@ -141,7 +143,7 @@ export class DataService {
       .subscribe(list => this.pushUniqueList(this.reverseList(list), this.video));
 
   }
-  addToCalendar(start: number, end: number) {
+  addToCalendar(start: number, end: number): void {
     this.loadIndicator.state = true;
     if (this.calendar) this.calendar = [];
     this.angularFire.database.list('/items', {
@@ -152,11 +154,11 @@ export class DataService {
       }
     })
       .subscribe(list => this.pushUniqueList(this.reverseList(list), this.calendar),
-     
+
     );
 
   }
-  getCalendar() {
+  getCalendar() : News []{
     return this.calendar;
   }
   getOnlyNews(): News[] {
@@ -178,50 +180,53 @@ export class DataService {
     this.angularFire.database.list('/items', query)
       .subscribe(list => this.pushUniqueList(this.reverseList(list), this.blogs));
   }
-  addToLastWeeks(days) {
-    let start : number = Date.now() -(days*86400000);
+  addTopComments(days :number, itemsQuantity:number):void {
+    let start: number = Date.now() - (days * 86400000);
     let end = Date.now() + 86400000;
-    if (this.lastweeks.length>0) return;
+    if (this.topComments.length > 0) return;
     this.angularFire.database.list('/items', {
       query: {
         orderByChild: 'date',
         startAt: start,
         endAt: end,
       }
-    }).subscribe(list => this.pushUniqueList(this.reverseList(list), this.lastweeks),
-     
-    );
+    }).subscribe(list => list.forEach(item => this.getCommentCount(item, itemsQuantity))
+      //this.pushUniqueList(this.reverseList(list), this.topComments),
+
+      );
 
   }
-   getLastWeeks() {
-    return this.lastweeks;
+  getTopComments() : News[]{
+    return this.topComments;
   }
-
-
-
-/*addScriptCounter(id) {
-  let script = this.document.createElement('script');
-    script.src =  `https://break-news.disqus.com/count-data.js?
-                   2=http://195.138.78.131/newsApp/item/` + id;
-                   script.async = true;
-    script.type = 'text/javascript';
-}
-*/
-
-disqWidgetCreate() {
-    if ((<any>window).DISQUSWIDGETS === undefined) {
-      (<any>window).DISQUSWIDGETS = {};
-      let self = this;
-      (<any>window).DISQUSWIDGETS.displayCount = function (response) {
-        if (response.counts.length > 0) {
-          let count = response.counts[0].comments;
-          console.log(response.counts[0]);
-        }
+  getCommentCount(item: News, itemsQuantity:number): void {
+    let id = item.id;
+    let url = "https://disqus.com/api/3.0/threads/list.json";
+    let params = new URLSearchParams();
+    params.set('api_key', 'tgsDgxjpDUDzoJsmxs9PQdJhUutzOq06tUNeghuI0ONdCxW6vXCCMN8eXZyWhReF');
+    params.set('forum', 'break-news');
+    params.set('thread:ident', "item/" + id);
+    params.set('callback', 'JSONP_CALLBACK');
+    this.jsonp
+      .get(url, { search: params })
+      .subscribe(data => {
+        let count = data.json().response[0].posts;
+        item.comments = count;
+        this.topComments.push(item);
+        this.sortTopComment(itemsQuantity);
       }
-    }
+      , error => console.error(error))
   }
+  sortTopComment(itemsQuantity: number): void {
+    let tc = this.topComments;
+    tc = tc.sort((a, b) => b.comments - a.comments);
+    if (tc.length >= itemsQuantity)
+      this.topComments = this.topComments.slice(0, itemsQuantity);
+  }
+  addCommentsCounter(comment): void {
+    let id = comment.id.replace("item/", "");
+    let counter = comment.comments;
+    this.commentsCounter[id] = counter;
 
-
-
-
+  }
 }

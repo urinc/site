@@ -9,24 +9,20 @@ import { Component, Input, ElementRef, OnInit, Renderer } from '@angular/core';
 export class CommentsComponent implements OnInit {
 
   @Input() public identifier: string;
- 
 
-  constructor(private el: ElementRef, 
-              private renderer: Renderer) { }
-  
+
+    constructor(private el: ElementRef,
+                private renderer: Renderer) { }
+
   ngOnInit() {
-   
+
     if ((<any>window).DISQUS === undefined) {
-        this.addScriptTag();
+      this.addScriptTag();
     }
     else {
       this.reset();
-    } 
+    }
   }
-
-
-  
-
   reset() {
     (<any>window).DISQUS.reset({
       reload: true,
@@ -40,17 +36,16 @@ export class CommentsComponent implements OnInit {
     script.async = true;
     script.type = 'text/javascript';
     script.setAttribute('data-timestamp', new Date().getTime().toString());
-     
+
   }
   getConfig() {
     let identifier = this.identifier;
     return function () {
-   //   this.page.title = "News/" + identifier;
-     // this.page.identifier = "item/" + identifier;
+      this.page.identifier = "item/" + identifier;
       this.page.url = "http://195.138.78.131/newsApp/item/" + identifier;
       this.language = 'en';
-   }
- }
+    }
+  }
 }
 
 

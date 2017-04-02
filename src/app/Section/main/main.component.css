@@ -10,11 +10,11 @@
 
 
 .right-panel {
-  background-color: peachpuff;
-  height : 300px;
+ border: solid 1px rgb(221, 221, 221);
   overflow : hidden;
-  padding : 20px;
-  margin-left : 75%
+   background-color: #F0FFF0;
+  margin-left : 75%;
+
   
  
 }
@@ -25,7 +25,6 @@
    /* background-color: white;*/
 
 }
-
 
 
 .clr{

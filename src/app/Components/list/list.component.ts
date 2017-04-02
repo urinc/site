@@ -15,8 +15,6 @@ export class ListComponent implements OnInit, OnDestroy , AfterViewInit,AfterVie
   constructor() { }
 
   ngOnInit() {
-    
-    
      }
 
 

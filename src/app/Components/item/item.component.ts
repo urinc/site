@@ -1,11 +1,12 @@
-import { Component, ElementRef, ViewChild, OnInit, Renderer, Input, AfterViewInit } from '@angular/core';
-import { News } from './../../_Shared/news';
+import { Component, OnInit, Input, ElementRef, Renderer } from '@angular/core';
 import { Router } from '@angular/router';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
+
 import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-//declare var DISQUSWIDGETS: any;
+
+import { News } from './../../_Shared/news';
+import { DataService } from './../../_Services/data.service';
 
 @Component({
   selector: 'app-item',
@@ -26,28 +27,41 @@ export class ItemComponent implements OnInit {
   articleBody: string = "... ";
   visibility: boolean = true;
   top: boolean = false;
-  comments = { count: 0 };
   url: string;
-
+  comments: number[];
+ 
 
 
   constructor(
-    private http: Http,
+    private dataService: DataService,
     private router: Router,
     private el: ElementRef,
-    private renderer: Renderer) { }
+    private renderer: Renderer
+  ) {
+
+    /*setInterval(() => {
+                    console.log(this.comments);
+                                  
+                    }, 5000);
+    */
+
+  }
 
   ngOnInit() {
-    this.url = "https://break-news.disqus.com/count-data.js?2=http://195.138.78.131/newsApp/item/" + this.item.id;
     this.initialBody = this.item.body;
     this.cleanedBody = this.sanitizeText(this.initialBody);
     this.splittedBody = this.cleanedBody.split(' ');
     this.getIntro();
     this.getArticleBody();
-    //  this.disqWidgetCreate();
-    //  this.addScriptCounter();
-    // this.getHCount();
+    this.comments = this.dataService.commentsCounter//[this.item.id] || 0;
+   
+    this.disqWidgetCreate();
+    this.addScriptCounter();
+   
   }
+
+  
+
   sanitizeText(body) {
     let regex = /(&nbsp;|&mdash;|&ndash;|<([^>]+)>)/ig;
     return body.replace(regex, '')
@@ -71,35 +85,47 @@ export class ItemComponent implements OnInit {
   navigateTo() {
     this.router.navigate(['/item', this.item.id]);
   }
-
   approximateReading() {
     return Math.ceil(this.splittedBody.length / 150)
   }
-
   toggleVisibility() {
     this.visibility = !this.visibility;
-
-
   }
+
+  
+
+
   disqWidgetCreate() {
+
     if ((<any>window).DISQUSWIDGETS === undefined) {
       (<any>window).DISQUSWIDGETS = {};
       let self = this;
       (<any>window).DISQUSWIDGETS.displayCount = function (response) {
         if (response.counts.length > 0) {
-          let count = response.counts[0].comments;
-          console.log(response.counts[0]);
+          self.dataService.addCommentsCounter(response.counts[0]);
+          //console.log(response.counts[0]);
         }
       }
     }
-  }
-
+ }
   addScriptCounter() {
     let script = this.renderer.createElement(this.el.nativeElement, 'script');
-    script.src = this.url;
+    script.src = `https://break-news.disqus.com/count-data.js?1=item/` + this.item.id;
     script.async = true;
     script.type = 'text/javascript';
   }
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
 
