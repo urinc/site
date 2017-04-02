@@ -3,12 +3,20 @@
     <app-spinner>
     </app-spinner>
   </div>  <!--spinner-->
+  <div class= "item-detail">
   <div *ngIf="item">
     <app-item-detail [item]="item">
     </app-item-detail>
-   <div>
+   </div>
+
       <div class="disqus">
        <disqus-comp [identifier]="id">
        </disqus-comp>
       </div><!--disqus-->
-  </div>  <!--full-item-container-->
+
+    </div>   <!--item-detail-->
+    <div class = "right-panel">
+      <app-top-commented>
+      </app-top-commented>
+    </div>  <!--side-panel-->
+</div>  <!--full-item-container-->

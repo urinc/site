@@ -15,7 +15,7 @@ classOfInitialPage = {videoSection :true};
  itemsList:  News[];
 loadIndicator;
   constructor(private dataService : DataService) { 
-    this.dataService.addBlogsToArray(5);
+    this.dataService.addBlogsToArray(10);
     this. itemsList = this.dataService.getBlogs();
     this.loadIndicator = dataService.loadIndicator;
 

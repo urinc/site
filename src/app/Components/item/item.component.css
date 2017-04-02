@@ -323,7 +323,11 @@
     transition: opacity 0.5s, visibility 0.5s, height 0.5s;
  }
  
- .thumbNail .intro, .asterix{
+ .thumbNail .intro .asterix{
+   display: none;
+    }
+ 
+.thumbNail .intro {
    display: none;
     }
  

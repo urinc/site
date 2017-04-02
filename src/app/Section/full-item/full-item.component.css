@@ -1,10 +1,26 @@
 .disqus{
    
      max-width: 65%;
+     margin-left:5%
 }
 
 .full-item-container{
     margin: auto;
-    text-align: center;
     width: 1200px
 }
+
+.item-detail{
+    width: 75%;
+    float :left;
+  
+}
+
+.right-panel{
+  border: solid 1px rgb(221, 221, 221);
+  overflow : hidden;
+  background-color: #F0FFF0;
+  margin-left : 75%;
+  margin-top: 40px;
+  width: 260px;
+}
+
