@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { News } from '../../_Shared/news';
@@ -10,7 +10,7 @@ import { DataService } from '../../_Services/data.service';
   styleUrls: ['./full-item.component.css']
 })
 
-export class FullItemComponent implements OnInit {
+export class FullItemComponent implements OnInit, AfterViewInit {
 
 
   id;
@@ -19,14 +19,13 @@ export class FullItemComponent implements OnInit {
   constructor(
     private activateRoute: ActivatedRoute,
     private dataService: DataService) {
-  
+   
+    this.id = this.activateRoute.snapshot.params['id'];
   }
 
 
   ngOnInit() {
-
-    window.scrollTo(0,0);
-  this.id = this.activateRoute.snapshot.params['id'];
+   
     if (this.dataService.getDataById(this.id) == -1) {
       if (!this.item) {
             this.dataService.getDataByIdObservable(this.id)
@@ -39,6 +38,11 @@ export class FullItemComponent implements OnInit {
 
   }
 
+ngAfterViewInit(){
+console.log("scroll to")
+ //setTimeout(()=>
+   window.scrollTo(0,0)//, 10000)
+}
 
 
 

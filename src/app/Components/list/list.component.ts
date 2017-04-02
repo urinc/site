@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Input, OnChanges,AfterViewInit, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, OnChanges, AfterViewInit, AfterViewChecked } from '@angular/core';
 import { News } from './../../_Shared/news';
 
 
@@ -7,31 +7,34 @@ import { News } from './../../_Shared/news';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
-export class ListComponent implements OnInit, OnDestroy , AfterViewInit,AfterViewChecked, OnChanges{
- @Input () itemsList: News[];
- @Input () classOfInitialPage;
- @Input () loadIndicator;
+export class ListComponent implements OnInit, OnDestroy, AfterViewInit, AfterViewChecked, OnChanges {
+
+  @Input() itemsList: News[];
+  @Input() classOfInitialPage;
+  @Input() loadIndicator;
+
   static coords: number = 0;
+
   constructor() { }
 
-  ngOnInit() {
-     }
+  ngOnInit() { }
 
 
-ngAfterViewInit(){
- window.scrollTo(0, ListComponent.coords );
-}
+  ngAfterViewInit() {
+    window.scrollTo(0, ListComponent.coords);
+  }
 
-ngAfterViewChecked(){
+  ngAfterViewChecked() {
+    console.log(ListComponent.coords)
+    if (!this.classOfInitialPage.thumbNail)
+    ListComponent.coords = window.pageYOffset;
 
-ListComponent.coords = window.pageYOffset;
+  }
 
-}
+  ngOnDestroy() {
 
- ngOnDestroy(){
- 
- }
-ngOnChanges(){
+  }
+  ngOnChanges() {
 
-}
+  }
 }
