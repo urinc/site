@@ -1,4 +1,5 @@
 
+.invisible{display:none;}
 /*--------Main Section Component------------- */
   .mainSection .pointer{
    cursor: pointer;

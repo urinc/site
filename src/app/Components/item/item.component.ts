@@ -29,7 +29,7 @@ export class ItemComponent implements OnInit {
   top: boolean = false;
   url: string;
   comments: number[];
- 
+ visibility2: boolean = true;
 
 
   constructor(
@@ -39,11 +39,6 @@ export class ItemComponent implements OnInit {
     private renderer: Renderer
   ) {
 
-    /*setInterval(() => {
-                    console.log(this.comments);
-                                  
-                    }, 5000);
-    */
 
   }
 
@@ -91,8 +86,6 @@ export class ItemComponent implements OnInit {
   toggleVisibility() {
     this.visibility = !this.visibility;
   }
-
-  
 
 
   disqWidgetCreate() {
