@@ -1,17 +1,37 @@
-<div class ="list-conatiner">
-<div  *ngFor = "let item of itemsList">
-  <app-item [item] = "item"  
-     [classOfInitialPage] = "classOfInitialPage"
-     >
- </app-item>
+<!--[ngClass]="{invisUpButton: upButtonVisibility}"
+<div class="round-button" >
+    <a href="http://example.com">
+        <img src="http://codeitdown.com/media/Home_Icon.svg" alt="Home" />
+    </a>
+</div>
+
+-->
+
+
+<div class="list-conatiner" [ngClass]="classOfInitialPage">
+  
+<div class="upButton" 
+(click)="scrollToTop()"
+[ngClass]="{upButtonVis: upButtonVisibility}"> ^
+<!-- <img src="https://tookitaki.com/assets/images/up.png" alt="Home" />-->
 </div>  
-</div>
 
-<div class="clr">
-</div>
-<div *ngIf ="this.loadIndicator.state" 
-class= "spinner" >
-<app-spinner>
-  </app-spinner>
+  <div *ngFor="let item of itemsList">
+    <app-item 
+    [item]="item" 
+    [classOfInitialPage]="classOfInitialPage"
+    (showLink)="showLink($event)"
+    (hideLink)="hideLink($event)"
+    >
+    </app-item>
+  </div> <!--item of itemsList-->
+  
+  <div class="clr">
+  </div>  <!--clr-->
 
-</div> <!--spinner-->
+  <div *ngIf="this.loadIndicator.state" class="spinner">
+    <app-spinner>
+    </app-spinner>
+  </div> <!--spinner-->
+
+</div><!--list-conatiner-->

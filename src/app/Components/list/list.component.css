@@ -1,6 +1,54 @@
-.list-container{
-     
-}
+
 .clr{
     clear: both
+}
+
+.upButton {
+    /*display:none;*/
+    
+   visibility: hidden;  
+   position : fixed;
+    right: 10px;
+    bottom: 85px;
+    width: 73px;
+    height: 0;
+    padding-bottom:65px;
+    border-radius: 50%;
+    border: 2px solid #f5f5f5;
+    overflow: hidden;
+    background: #464646;
+    box-shadow: 0 0 3px gray;
+    text-align: center;
+    opacity: 0;
+    cursor: default;
+    transition : visibility 300s linear 500ms, opacity 500ms;
+    font-size: 3em;
+    font-weight: bold;
+    color: white
+    /*
+    color: white;
+    background-color: black;*/     
+}
+
+/*
+.upButton img {
+    visibility: inherit;  
+    display: block;
+    width: 90%;
+ padding: 12%;
+    height: auto;
+}
+*/
+
+
+.mainSection .upButtonVis{
+    /*display: block;*/
+    visibility : visible;
+   cursor: pointer;
+    opacity: 0.7;
+    
+    }
+.upButton:hover {
+    background: black;
+  /*  opacity: 1*/
 }

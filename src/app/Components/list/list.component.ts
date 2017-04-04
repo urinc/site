@@ -13,7 +13,10 @@ export class ListComponent implements OnInit, OnDestroy, AfterViewInit, AfterVie
   @Input() classOfInitialPage;
   @Input() loadIndicator;
 
+ counter=0;
+
   static coords: number = 0;
+  upButtonVisibility: boolean = false;
 
   constructor() { }
 
@@ -22,19 +25,34 @@ export class ListComponent implements OnInit, OnDestroy, AfterViewInit, AfterVie
 
   ngAfterViewInit() {
     window.scrollTo(0, ListComponent.coords);
+    
   }
 
   ngAfterViewChecked() {
- 
-    if (!this.classOfInitialPage.thumbNail)
+  
+   
+    if (!this.classOfInitialPage.thumbNail) {
     ListComponent.coords = window.pageYOffset;
+    
+    if ((window.pageYOffset>1200 && this.upButtonVisibility ==false )){
+          this.upButtonVisibility=true};
+    if ((window.pageYOffset<1100  && this.upButtonVisibility ==true)){
+          this.upButtonVisibility=false};
+    }
 
   }
 
+
+  scrollToTop(){
+    window.scrollTo(0, 0);
+  }
   ngOnDestroy() {
 
   }
   ngOnChanges() {
 
   }
+
+
+
 }

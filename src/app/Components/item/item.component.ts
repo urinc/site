@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ElementRef, Renderer } from '@angular/core';
+import { Component, OnInit, Input, Output, ElementRef, EventEmitter, Renderer } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Observable } from "rxjs/Observable";
@@ -18,6 +18,7 @@ export class ItemComponent implements OnInit {
 
   @Input() item: News;
   @Input() classOfInitialPage;
+ 
 
   initialBody: string = '';
   intro: string = '';
@@ -29,7 +30,7 @@ export class ItemComponent implements OnInit {
   top: boolean = false;
   url: string;
   comments: number[];
- visibility2: boolean = true;
+bottomLinkVisibility = false;
 
 
   constructor(
@@ -49,13 +50,12 @@ export class ItemComponent implements OnInit {
     this.getIntro();
     this.getArticleBody();
     this.comments = this.dataService.commentsCounter//[this.item.id] || 0;
-   
     this.disqWidgetCreate();
     this.addScriptCounter();
-   
+    this.url  =`news-break.ml/newsApp/#/item/` + this.item.id
   }
 
-  
+ 
 
   sanitizeText(body) {
     let regex = /(&nbsp;|&mdash;|&ndash;|<([^>]+)>)/ig;
@@ -86,8 +86,6 @@ export class ItemComponent implements OnInit {
   toggleVisibility() {
     this.visibility = !this.visibility;
   }
-
-
   disqWidgetCreate() {
 
     if ((<any>window).DISQUSWIDGETS === undefined) {
@@ -100,7 +98,7 @@ export class ItemComponent implements OnInit {
         }
       }
     }
- }
+  }
   addScriptCounter() {
     let script = this.renderer.createElement(this.el.nativeElement, 'script');
     script.src = `https://break-news.disqus.com/count-data.js?1=item/` + this.item.id;
@@ -108,9 +106,15 @@ export class ItemComponent implements OnInit {
     script.type = 'text/javascript';
   }
 
+  onMouseEnter(){
+   
+    this.bottomLinkVisibility =true
+  }
 
-
-
+onMouseLeave(){
+  
+    this.bottomLinkVisibility = false
+  }
 
 
 

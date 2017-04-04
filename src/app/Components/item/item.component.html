@@ -1,7 +1,7 @@
 <div class="item" [ngClass]="classOfInitialPage">
   <div class="item-container" [ngClass]= "{topped : top}">
     <div class="image-container">
-      <img class="pointer" src= {{item.avatar}} (click)="navigateTo()" alt="Image Loading">
+      <img class="pointer" src= {{item.avatar}}  (click)="navigateTo()" (mouseleave)="onMouseLeave()" (mouseenter)="onMouseEnter()"alt="Image Loading">
       <div class="category"> {{item.category}}
       </div>      <!--category-->
       <div class="read-time"> Reading time ~ {{approximateReading()}} min
@@ -10,7 +10,7 @@
     <div class="id">{{item.id}}
     </div>    <!-- id-->
     <div class= "literal-part">
-    <div class="pointer title" (click)="navigateTo()">
+    <div class="pointer title" (click)="navigateTo()" (mouseleave)="onMouseLeave()" (mouseenter)="onMouseEnter()">
       {{item.title}}
     </div>    <!-- pointer title-->
     <div class="stamp"> {{item.date | date:'medium' }} &nbsp;&nbsp;
@@ -29,7 +29,13 @@
    
     </div> <!--literal-part-->
   </div>  <!--item-container-->
+
+<div class = "bottomLinkAddr" [ngClass]="{bottomLinkAddrVis: bottomLinkVisibility}">
+ {{url}}
+ </div> 
+
 </div><!--classOfInitialPage-->
+
 
 <div class="after-box">
 <div> 
