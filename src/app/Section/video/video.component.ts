@@ -3,8 +3,6 @@ import { DataService } from './../../_Services/data.service';
 import { News } from './../../_Shared/news';
 
 
-
-
 @Component({
   selector: 'app-video',
   templateUrl: './video.component.html',
@@ -17,10 +15,13 @@ export class VideoComponent implements OnInit {
 classOfInitialPage = {videoSection :true};
 
  itemsList:  News[];
-loadIndicator;
+ loadIndicator;
   constructor(private dataService : DataService) { 
     
   }
+
+
+
 
   ngOnInit() {
    this. itemsList = this.dataService.getVideo();

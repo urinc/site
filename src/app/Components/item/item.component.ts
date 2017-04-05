@@ -53,6 +53,7 @@ bottomLinkVisibility = false;
     this.disqWidgetCreate();
     this.addScriptCounter();
     this.url  =`news-break.ml/newsApp/#/item/` + this.item.id
+    console.log(this.classOfInitialPage)
   }
 
  

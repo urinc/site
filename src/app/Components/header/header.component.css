@@ -1,10 +1,12 @@
 
 div.outer{
 background-color:black;
-height : 35px;
+height : 45px;
 text-align: center;
 padding : 8px 10px 10px 10px ;
-font-weight: bolder
+font-weight: 500;
+font-size : 15pt;
+
 }
 
 
@@ -22,6 +24,7 @@ font-weight: bolder
        padding-right: 10px;
        padding-left: 10px;
         color: white;
+        
  }
 
 a:hover {
@@ -37,5 +40,12 @@ a:active {
     .calendar{
        display:none;
       }
+    div.outer{
+height: 35px;
+padding : 8px 5px 10px 10px ;
+font-weight: 500;
+font-size : 13pt;
+
+}  
 
 }

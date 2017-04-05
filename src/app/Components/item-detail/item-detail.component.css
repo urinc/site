@@ -1,24 +1,19 @@
-.detail-component-side-panel-conatiner{
+.detailConatiner{
      position:relative;
      padding : 1% 1% 0% 2%;
      font-family: 'Roboto';
-     
-}
-
-.detail-component{
-   
-   float : left;
-   overflow:hidden ;  
-   
+      overflow:hidden ;     
+    
 }
 
 
-/*.detail-component*/ img {
-    max-width : 90%;
-    margin : 5%;
-   
+img {
+    max-width : 90% ; 
+    margin : 5%; 
 
 }
+
+
 
 .author:before {
       content: "๏̯͡๏ :" }
@@ -62,13 +57,17 @@
 
 
 @media screen and (max-width: 960px){
+    detail-component-side-panel-conatiner{
+       max-width:100%;
+      
+    }
      h2{
       font-size: 1.2em;
       margin: 2%;
      }
-   img {
-    max-width : 95%;
-    margin : 1% 0% 3% 2%;
+     img {
+       max-width : 95%;
+       margin : 1% 0% 3% 2%;
    }
    .author{
        display:none;
@@ -76,8 +75,8 @@
    .stamp{
       margin-left: 5%;
       position:absolute;
-       top: 10%;
-      right: 1%;
+       top: 0%;
+      right: 5%;
     }   
 
 }

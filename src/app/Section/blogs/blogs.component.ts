@@ -8,12 +8,14 @@ import { News } from './../../_Shared/news';
   templateUrl: './blogs.component.html',
   styleUrls: ['./blogs.component.css']
 })
+
+
 export class BlogsComponent implements OnInit {
 
 classOfInitialPage = {videoSection :true};
 
  itemsList:  News[];
-loadIndicator;
+ loadIndicator;
   constructor(private dataService : DataService) { 
     this.dataService.addBlogsToArray(10);
     this. itemsList = this.dataService.getBlogs();

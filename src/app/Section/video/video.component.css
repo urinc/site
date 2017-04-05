@@ -17,3 +17,13 @@
   width: 260px;
 }
 
+
+@media screen and (max-width: 960px){
+    .right-panel{
+       display:none;
+      }
+     .items-list-continer{
+      width: 100%;  
+     }
+
+}
