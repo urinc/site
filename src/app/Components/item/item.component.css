@@ -26,7 +26,7 @@
    }
  .mainSection img { 
    border-radius: 5px;
-   border:1px solid lightgrey;
+  /* border:1px solid lightgrey;*/
    float:left;
    margin : 1%;
    overflow: hidden; 
@@ -137,6 +137,79 @@
     transition: opacity 0.5s, visibility 0.5s, height 0.5s;
  }
  
+
+@media screen and (max-width: 960px){
+    
+ .mainSection img { 
+   border-radius: 5px;
+   float:left;
+   margin : 1%;
+   overflow: hidden; 
+   width : 55%;
+   max-height: 170 px
+}
+
+  .mainSection .image-container{
+   position : relative;
+    width : 55%;
+ }
+
+.mainSection .image-container .category{
+     position : absolute;
+     left:  6px;
+     width: 40px;
+     font-family: 0.2em;
+     top : 8px;
+     background-color: dodgerblue;
+     border-radius: 3px;
+     padding : 3px;
+     opacity : 0.6;
+     text-shadow: 1px 1px 1px #333;
+     color : white;           
+}
+.mainSection .literal-part {
+     margin : 2% 5% 1% 35%;    
+ }
+ .mainSection .title {
+   font-family: "Roboto-Regular";
+   font-size: 10pt;
+   font-weight: 500;
+}
+.mainSection .intro {
+     display: none;
+}
+.mainSection .asterix {
+     display: none;
+ }
+.mainSection .author {
+     display: none;
+ }
+.mainSection .comments:before {
+
+ }   
+.mainSection .comments {
+   font-size: 9pt;
+   font-weight: 500;}   
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    /*-------Video Section--------------*/
 
  .videoSection .item-container{

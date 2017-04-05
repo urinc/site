@@ -31,3 +31,17 @@
     clear: both
 }
 
+@media screen and (max-width: 960px){
+    .right-panel{
+       display:none;
+      }
+     .showcase-container{
+      display:none;  
+     }
+     .list-wrapper{
+    width : 100%;
+    
+   /* background-color: white;*/
+
+}
+}

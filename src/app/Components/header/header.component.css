@@ -32,3 +32,10 @@ a:hover {
 a:active {
     color: yellow;
 }
+
+@media screen and (max-width: 960px){
+    .calendar{
+       display:none;
+      }
+
+}

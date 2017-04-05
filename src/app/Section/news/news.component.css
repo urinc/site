@@ -7,6 +7,7 @@
 .items-list-continer{
       width: 70%;
     float:left;
+    
 }
 .right-panel{
 
@@ -16,4 +17,19 @@
   margin-left : 75%;
   margin-top: 40px;
   width: 260px;
+}
+
+
+
+@media screen and (max-width: 960px){
+    .right-panel{
+       display:none;
+      }
+     .item-detail{
+      width: 100%;  
+     }
+     .items-list-continer{
+      width: 100%;
+      }
+
 }

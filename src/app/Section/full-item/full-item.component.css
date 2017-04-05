@@ -25,3 +25,12 @@
   width: 25%;
 }
 
+@media screen and (max-width: 960px){
+    .right-panel{
+       display:none;
+      }
+     .item-detail{
+      width: 100%;  
+     }
+
+}
