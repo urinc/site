@@ -66,7 +66,7 @@
 
 
 
- .mainSection .image-container .read-time{
+ .mainSection .read-time{
    display : block;
    position : absolute;
    top : 120px;
@@ -89,7 +89,7 @@
      text-shadow: 1px 1px 1px #333;
      color : white;      
 }
-.mainSection .image-container:hover { 
+.mainSection .image:hover { 
      box-shadow: inset 0 0 0 5px darkslategrey;
      opacity: 0.8;
      visibility:visible;
@@ -130,20 +130,17 @@
 /*________@MEDIA_____________________________*/
 @media screen and (max-width: 960px){
 
-/*.mainSection .image-container{
-   border: red solid 2px;
-    max-width : 25%;
- }*/
+
  .mainSection img { 
    border-radius: 5px;
    float:left;
    margin : 1%;
    overflow: hidden; 
-   width : 35%;
+   width : 33%;
    max-height: 170 px
 }
 
-.mainSection .image-container .category{
+.mainSection .category{
      position : absolute;
      left:  3%;
      top :  16%;
@@ -155,7 +152,7 @@
      color : white;           
 }
 .mainSection .literal-part {
-     margin : 0% 5% 1% 38%;    
+     margin : 0% 3% 1% 36%;    
  }
  .mainSection .title {
    font-family: "Roboto-Regular";
@@ -192,7 +189,7 @@
    position: relative;
    overflow: hidden;
  }
-.videoSection .image-container .category{
+.videoSection .category{
      position : absolute;
      right:  5%;
      top :5%;
@@ -203,7 +200,7 @@
      text-shadow: 1px 1px 1px #333;
      color : white;      
 }
-.videoSection .image-container .read-time{
+.videoSection .read-time{
    display : block;
    position : absolute;
    top :5%;
@@ -278,8 +275,8 @@
    overflow: hidden;
  }
 
- .videoSection .image-container .read-time,
- .videoSection .image-container .category
+ .videoSection .read-time,
+ .videoSection .category
  {
      padding : 0px 5px 0px 3px;
      opacity : 0.4;
@@ -348,7 +345,7 @@
 
 
 
- .thumbNail .image-container .read-time{
+ .thumbNail .read-time{
    display : block;
    position : absolute;
    top : 60px;
@@ -406,13 +403,13 @@
  }
 
 .showCase .comments:before {
-  content: "✌  :" }   
+  content: "✌:" }   
 
 
 .showCase .stamp ,
 .showCase .comments,
-.showCase .image-container .category,
-.showCase .image-container .read-time
+.showCase .category,
+.showCase .read-time
  {
      position : absolute;
      font-size: 5%;
@@ -427,14 +424,14 @@
   left:1%
 }
 
-.showCase .image-container .read-time{
+.showCase .read-time{
   top  : 2%;
   right: 2%;   
 }
 .showCase .stamp{
  bottom:2%
 }
-.showCase .image-container .category{
+.showCase .category{
   top  : 2%;
   left:  2%;
  }
@@ -450,18 +447,6 @@
   margin : 5%;
   text-shadow: 1px 1px 1px black;
 }
-
-/*{
-  
-  color: white;
-  background-color: black;
-  opacity: 0.5;
-  position: absolute;
-  bottom: 2%;
-  font-size: 1em;
-  width: auto;
-  
-}*/
 
 .showCase .intro,
 .showCase .id, 
