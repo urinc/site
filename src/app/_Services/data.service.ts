@@ -29,6 +29,7 @@ export class DataService {
     this.getInitialLastItems(5);
     this.items = angularFire.database.list('/items');
     this.addVideoToArray(6);
+
     this.addTopComments(4, 10);
 
     setInterval(() => {
