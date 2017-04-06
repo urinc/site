@@ -68,3 +68,48 @@ transition:all 0.2s ease;
    text-align: center;
    padding : 30px 10px 10px 10px
 }
+
+.showcase-container-mob{
+    position : relative;
+    display: none;
+    margin : 1%;
+ 
+
+}
+
+.showcase-container-mob img{
+    border-radius: 2px;
+}
+
+.btn{
+   width: 12%;
+   text-align: center;
+   opacity: 0.6;
+   color: white;
+   background-color: black;
+   position: absolute;
+   top: 40%;
+}
+
+.right{
+ 
+ right: 0%;
+}
+.left{
+
+}
+
+
+
+
+@media screen and (max-width: 960px){
+    .showcase-container{
+      display: none;   
+}  
+     .showcase-container-mob{
+     display: block;
+}
+
+
+
+}

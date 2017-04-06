@@ -25,7 +25,7 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
      this.itemsList = this.dataService.getData();
-     this.videoList = this.dataService.getVideo();
+    
    
   }
  
