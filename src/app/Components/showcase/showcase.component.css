@@ -88,18 +88,20 @@ transition:all 0.2s ease;
    color: white;
    background-color: black;
    position: absolute;
-   top: 30%;
+   top: 80px;
 }
 
-.right{
- 
+
+.btn:active{
+   color: yellow;
+   opacity: 1;
+   
+}
+
+
+.btn.right{ 
  right: 0%;
 }
-.left{
-
-}
-
-
 
 
 @media screen and (max-width: 960px){

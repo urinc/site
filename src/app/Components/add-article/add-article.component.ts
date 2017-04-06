@@ -41,11 +41,7 @@ export class AddArticleComponent implements OnInit {
   }
 
   post() {
-    console.log("title " + this.addNewArticle.value.title)
-    console.log("avatar " + this.addNewArticle.value.avatar)
-    console.log("type " + this.addNewArticle.value.articleType)
-    console.log("body " + this.body)
-     this.dataService.addData(this.itemBuilder());
+         this.dataService.addData(this.itemBuilder());
   }
 
   keyupHandler($event) {

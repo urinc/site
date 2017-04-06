@@ -28,15 +28,13 @@
   width : 250px;
   max-height: 170 px
 }
-.mainSection .item-container{
-   border-bottom: 1px solid lightgrey;
-   
 
-}
 .mainSection .item-container{
   overflow: hidden;
   padding-bottom: 10px;
   padding-top: 10px;
+  position: relative;
+  border-bottom: 1px solid lightgrey;
 }
 .mainSection .id{
   display: none
@@ -67,10 +65,7 @@
  }
 
 
- .mainSection .image-container{
-   position : relative;
-    width : 250px;
- }
+
  .mainSection .image-container .read-time{
    display : block;
    position : absolute;
@@ -83,10 +78,10 @@
    visibility:hidden;
   
  }
-.mainSection .image-container .category{
+.mainSection .category{
      position : absolute;
-     right:  4px;
-     top : 8px;
+     left: 2%;
+     top : 10%;
      background-color: dodgerblue;
      border-radius: 3px;
      padding : 3px;
@@ -135,49 +130,47 @@
 /*________@MEDIA_____________________________*/
 @media screen and (max-width: 960px){
 
+/*.mainSection .image-container{
+   border: red solid 2px;
+    max-width : 25%;
+ }*/
  .mainSection img { 
    border-radius: 5px;
    float:left;
    margin : 1%;
    overflow: hidden; 
-   width : 55%;
+   width : 35%;
    max-height: 170 px
 }
-  .mainSection .image-container{
-   position : relative;
-    width : 55%;
- }
+
 .mainSection .image-container .category{
      position : absolute;
-     left:  6px;
-     width: 40px;
-     font-family: 0.2em;
-     top : 8px;
+     left:  3%;
+     top :  16%;
      background-color: dodgerblue;
-     border-radius: 3px;
-     padding : 3px;
-     opacity : 0.6;
+     border-radius: 2px;
+     padding : 0px 0px 0px 2px;
+     opacity : 0.4;
      text-shadow: 1px 1px 1px #333;
      color : white;           
 }
 .mainSection .literal-part {
-     margin : 2% 5% 1% 35%;    
+     margin : 0% 5% 1% 38%;    
  }
  .mainSection .title {
    font-family: "Roboto-Regular";
    font-size: 10pt;
    font-weight: 500;
 }
-.mainSection .intro {
+.mainSection .intro,
+.mainSection .asterix,
+.mainSection .author
+ {
      display: none;
 }
-.mainSection .asterix {
-     display: none;
- }
-.mainSection .author {
-     display: none;
-}   
-.mainSection .comments, .stamp {
+ 
+
+.mainSection .comments, .mainSection .stamp {
    position :relative;
    right: 10px;
    bottom: -5px;
@@ -284,6 +277,14 @@
    border-bottom: 1px solid lightgrey;
    overflow: hidden;
  }
+
+ .videoSection .image-container .read-time,
+ .videoSection .image-container .category
+ {
+     padding : 0px 5px 0px 3px;
+     opacity : 0.4;
+     border-radius: 2px;
+}
 
 }
 
@@ -403,46 +404,56 @@
  .showCase img{
    width: 100%;
  }
- 
- .showCase .image-container .category{
+
+.showCase .comments:before {
+  content: "✌  :" }   
+
+
+.showCase .stamp ,
+.showCase .comments,
+.showCase .image-container .category,
+.showCase .image-container .read-time
+ {
      position : absolute;
-     left:  2%;
-     width: 40px;
-     font-family: 0.2em;
-     top : 2%;
+     font-size: 5%;
      background-color: dodgerblue;
      border-radius: 3px;
-     padding : 3px;
+     padding : 0px 5px 0px 5px;
      opacity : 0.4;
      text-shadow: 1px 1px 1px #333;
      color : white;           
 }
+.showCase .comments{
+  left:1%
+}
 
 .showCase .image-container .read-time{
-   display : block;
-   position : absolute;
-   top: 2%;
-   right: 2%;
-   background-color: dodgerblue;
-     border-radius: 5px;
-     padding : 5px;
-     opacity : 0.5;
-     text-shadow: 1px 1px 1px #333;
-     color : white;      
-   
+  top  : 2%;
+  right: 2%;   
 }
+.showCase .stamp{
+ bottom:2%
+}
+.showCase .image-container .category{
+  top  : 2%;
+  left:  2%;
+ }
+ .showCase .comments{
+   top:1%;
+   left : 30%;
+ }
+
+
 .showCase .title{
   position: absolute;
   bottom: 30%;
   color: white;
   overflow: hidden;
   margin : 5%;
+  text-shadow: 1px 1px 1px black;
 }
 
-.showCase .stamp ,
-.showCase .comments,
-.showCase:before
-{
+/*{
   
   color: white;
   background-color: black;
@@ -452,17 +463,7 @@
   font-size: 1em;
   width: auto;
   
-}
-
-.showCase .stamp{
-  /*left:2%;*/
-}
-.showCase .comments{
-  left:1%
-}
-
-.showCase:before {
-      content: "✌  :" }   
+}*/
 
 .showCase .intro,
 .showCase .id, 
