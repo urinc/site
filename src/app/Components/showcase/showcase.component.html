@@ -30,16 +30,19 @@
 
 <div 
 class = "showcase-container-mob"
-*ngIf = "topCommentedList.length>3">
+*ngIf = "topCommentedList.length>1" >
 
-    <img src=  {{topCommentedList[0].avatar}}
-    alt="Image Loading">
+  <!--  <img src=  {{topCommentedList[counter].avatar}}
+    alt="Image Loading">-->
 
-<!--<app-item [item]="item">  </app-item>-->
+<app-item 
+ [item]="topCommentedList[counter]"
+ [classOfInitialPage]="classOfInitialPage">  
+</app-item>
 
-<div class="btn left"(click)="nextItem()"> << </div>
+<div class="btn left"(click)="prevItem()"> << </div>
 
-<div class="btn right"(click)="prevItem()"> >> </div>
+<div class="btn right"(click)="nextItem()"> >> </div>
 
 
 </div> <!--showcase-container-mob-->  
