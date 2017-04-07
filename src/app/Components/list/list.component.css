@@ -4,7 +4,6 @@
 }
 
 .upButton {
-    /*display:none;*/
     
    visibility: hidden;  
    position : fixed;
@@ -24,21 +23,8 @@
     transition : visibility 300s linear 500ms, opacity 500ms;
     font-size: 3em;
     font-weight: bold;
-    color: white
-    /*
-    color: white;
-    background-color: black;*/     
+    color: white     
 }
-
-/*
-.upButton img {
-    visibility: inherit;  
-    display: block;
-    width: 90%;
- padding: 12%;
-    height: auto;
-}
-*/
 
 
 .mainSection .upButtonVis{
@@ -51,4 +37,10 @@
 .upButton:hover {
     background: black;
   /*  opacity: 1*/
+}
+
+@media screen and (max-width: 960px){
+    .upButton{
+      display: none;   
+} 
 }
